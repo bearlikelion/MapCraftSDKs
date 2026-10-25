@@ -18,20 +18,32 @@ jobs:
           path: mapcraft
 
       - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
 
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: mapcraft
+          workspaces: |
+            mapcraft
+            mapcraft/plugins
 
       - name: Build mapcraft-cli
         run: cargo build --release -p mapcraft-cli --manifest-path mapcraft/Cargo.toml
+
+      # This repository is MapCraft's sdks folder, so the first-party plugins build straight into it.
+      - name: Build the first-party plugins into these SDKs
+        run: |
+          rm -rf mapcraft/sdks
+          ln -s "$GITHUB_WORKSPACE" mapcraft/sdks
+          cd mapcraft && cargo xtask plugins
 
       - name: Check the template and every SDK folder
         run: |
           shopt -s nullglob
           cli=mapcraft/target/release/mapcraft-cli
           status=0
-          for dir in template sdks/*/; do
+          for dir in templates/*/ */; do
+            [ -f "$dir/sdk.toml" ] || continue
             echo "::group::$dir"
             "$cli" sdk check "$dir" || status=1
             echo "::endgroup::"

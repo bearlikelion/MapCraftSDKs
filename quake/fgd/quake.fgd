@@ -1,0 +1,678 @@
+// Quake (id1) entities for MapCraft, written for this SDK.
+// Entity names, keys and flag bits follow the game; the descriptions are original.
+
+@SolidClass = worldspawn : "The level itself."
+[
+	message(string) : "Level name" : : "Shown when the level starts."
+	worldtype(choices) : "Theme" : 0 : "Picks the look of keys and some sounds." =
+	[
+		0 : "Medieval"
+		1 : "Metal (runic)"
+		2 : "Base"
+	]
+	sounds(integer) : "CD track" : 0
+	wad(string) : "Texture WADs" : : "WAD files the compiler reads textures from, separated by semicolons."
+]
+
+// Base classes. A class's own spawnflags replace those it inherits, so classes with flags of their own repeat the difficulty flags.
+
+@BaseClass = Appearflags
+[
+	spawnflags(flags) =
+	[
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@BaseClass = Targetname
+[
+	targetname(target_source) : "Name" : : "What triggers and buttons call this entity."
+]
+
+@BaseClass = Target
+[
+	target(target_destination) : "Target" : : "Entities to fire."
+	killtarget(target_destination) : "Kill target" : : "Entities to remove."
+]
+
+@BaseClass base(Target) = Fires
+[
+	delay(float) : "Delay" : "0" : "Seconds to wait before firing the targets."
+	message(string) : "Message" : : "Text printed to whoever set it off."
+]
+
+@BaseClass = Facing
+[
+	angle(integer) : "Facing" : 0 : "Yaw in degrees."
+]
+
+@BaseClass = Mover
+[
+	angle(integer) : "Direction" : 0 : "Yaw in degrees it moves along; -1 is up and -2 is down."
+]
+
+@BaseClass base(Appearflags, Facing, Targetname, Target) color(220 0 0) = Monster
+[
+	spawnflags(flags) =
+	[
+		1 : "Ambush" : 0 : "Waits until it sees the player instead of waking to noise."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@BaseClass base(Appearflags, Target) = Item []
+
+@BaseClass base(Item) color(0 80 255) size(-16 -16 0, 16 16 32) = Weapon []
+
+@BaseClass base(Item) color(80 160 255) size(0 0 0, 32 32 32) = Ammo
+[
+	spawnflags(flags) =
+	[
+		1 : "Large box" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@BaseClass base(Targetname) color(255 255 40) size(-8 -8 -8, 8 8 8) = Lighting
+[
+	spawnflags(flags) =
+	[
+		1 : "Start off" : 0 : "Only meaningful with a name; firing it toggles the light."
+	]
+	light(integer) : "Brightness" : 300
+	_color(color255) : "Color" : "255 255 255" : "Read by the light compiler."
+	style(choices) : "Style" : 0 : "How the light animates in game." =
+	[
+		0 : "Steady"
+		1 : "Flicker 1"
+		2 : "Slow strong pulse"
+		3 : "Candle 1"
+		4 : "Fast strobe"
+		5 : "Gentle pulse"
+		6 : "Flicker 2"
+		7 : "Candle 2"
+		8 : "Candle 3"
+		9 : "Slow strobe"
+		10 : "Fluorescent flicker"
+		11 : "Slow pulse, never dark"
+	]
+	wait(float) : "Fade scale" : "1" : "Larger values make the light reach less far."
+	delay(choices) : "Falloff" : 0 : "Read by the light compiler." =
+	[
+		0 : "Linear"
+		1 : "Inverse distance"
+		2 : "Inverse square"
+		3 : "None"
+	]
+	target(target_destination) : "Aim at" : : "An info_null to point a spotlight at."
+	mangle(string) : "Spotlight direction" : : "Yaw, pitch and roll; makes the light a spotlight."
+]
+
+@BaseClass base(Appearflags, Targetname, Fires) = Trigger
+[
+	sounds(choices) : "Sound" : 0 =
+	[
+		0 : "None"
+		1 : "Secret"
+		2 : "Beeps"
+		3 : "Large switch"
+	]
+	health(integer) : "Health" : 0 : "When set, it must be shot instead of touched."
+	angle(integer) : "Entry direction" : 0 : "When set, it only fires for someone moving this way."
+]
+
+// Player starts and markers
+
+@PointClass base(Facing) color(0 255 0) size(-16 -16 -24, 16 16 32) = info_player_start : "Where a single player game begins."
+[]
+
+@PointClass base(Facing) color(0 200 0) size(-16 -16 -24, 16 16 32) = info_player_start2 : "Where the player begins on the start map after finishing an episode."
+[]
+
+@PointClass base(Facing) color(255 120 0) size(-16 -16 -24, 16 16 32) = info_player_deathmatch : "A deathmatch spawn point."
+[]
+
+@PointClass base(Facing) color(0 160 255) size(-16 -16 -24, 16 16 32) = info_player_coop : "A cooperative play spawn point."
+[]
+
+@PointClass color(255 80 255) size(-16 -16 -16, 16 16 16) = info_intermission : "A camera for the end of level scoreboard; one is picked at random."
+[
+	mangle(string) : "View angles" : "0 0 0" : "Pitch, yaw and roll."
+]
+
+@PointClass base(Facing, Targetname) color(200 0 255) size(-8 -8 -8, 8 8 32) = info_teleport_destination : "Where a trigger_teleport sends whoever enters it."
+[]
+
+@PointClass base(Targetname) color(160 160 160) size(-4 -4 -4, 4 4 4) = info_null : "A position for other entities to aim at; removed when the level starts."
+[]
+
+@PointClass base(Targetname) color(160 160 160) size(-4 -4 -4, 4 4 4) = info_notnull : "Like info_null, but it stays in the level."
+[]
+
+@PointClass base(Targetname) color(80 255 255) size(-8 -8 -8, 8 8 8) = path_corner : "A stop on the route of a func_train or a patrolling monster."
+[
+	target(target_destination) : "Next stop"
+	wait(float) : "Wait" : "0" : "Seconds to pause here; -1 stops for good."
+]
+
+// Lights
+
+@PointClass base(Lighting) = light : "An invisible light."
+[]
+
+@PointClass base(Lighting) = light_fluoro : "A light that hums like a fluorescent tube."
+[]
+
+@PointClass base(Lighting) = light_fluorospark : "A buzzing light that flickers and sparks."
+[]
+
+@PointClass base(Lighting) = light_globe : "A small glowing ball."
+[]
+
+@PointClass base(Lighting) = light_torch_small_walltorch : "A torch for walls."
+[]
+
+@PointClass base(Lighting) = light_flame_large_yellow : "A large burning flame."
+[]
+
+@PointClass base(Lighting) = light_flame_small_yellow : "A small yellow flame."
+[]
+
+@PointClass base(Lighting) = light_flame_small_white : "A small white flame."
+[]
+
+// Brush entities
+
+@SolidClass base(Appearflags, Targetname, Fires, Mover) color(0 200 255) = func_door : "A sliding door; doors that touch open together."
+[
+	spawnflags(flags) =
+	[
+		1 : "Starts open" : 0
+		4 : "Don't link" : 0 : "Opens alone even when touching other doors."
+		8 : "Gold key" : 0
+		16 : "Silver key" : 0
+		32 : "Toggle" : 0 : "Stays put until fired again."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	speed(integer) : "Speed" : 100
+	wait(float) : "Wait" : "3" : "Seconds before it closes; -1 keeps it open."
+	lip(integer) : "Lip" : 8 : "How much of it stays in view when open."
+	dmg(integer) : "Crush damage" : 2
+	health(integer) : "Health" : 0 : "When set, it opens when shot."
+	sounds(choices) : "Sound" : 0 =
+	[
+		0 : "None"
+		1 : "Stone"
+		2 : "Machine"
+		3 : "Stone chain"
+		4 : "Screeching metal"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname, Fires, Mover) color(0 160 220) = func_door_secret : "A secret door that moves back, then sideways."
+[
+	spawnflags(flags) =
+	[
+		1 : "Open once" : 0 : "Stays open."
+		2 : "Left first" : 0 : "Moves left before backing away."
+		4 : "Down first" : 0 : "Moves down before backing away."
+		8 : "Not shootable" : 0 : "Only opens when fired."
+		16 : "Always shootable" : 0 : "Can be shot even when it has a name."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	t_width(integer) : "Side distance" : 0 : "How far it moves sideways; its own width when 0."
+	t_length(integer) : "Back distance" : 0 : "How far it moves back; its own depth when 0."
+	wait(float) : "Wait" : "5" : "Seconds before it closes."
+	dmg(integer) : "Crush damage" : 2
+	sounds(choices) : "Sound" : 3 =
+	[
+		1 : "Medieval"
+		2 : "Metal"
+		3 : "Base"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname, Fires, Mover) color(255 160 0) = func_button : "A button pressed by touching or shooting it."
+[
+	speed(integer) : "Speed" : 40
+	lip(integer) : "Lip" : 4 : "How much of it stays in view when pressed."
+	wait(float) : "Wait" : "1" : "Seconds before it pops out; -1 keeps it pressed."
+	health(integer) : "Health" : 0 : "When set, it must be shot."
+	sounds(choices) : "Sound" : 0 =
+	[
+		0 : "Steam metal"
+		1 : "Wooden clunk"
+		2 : "Metal click"
+		3 : "In and out"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname) color(0 255 160) = func_plat : "A lift that rises when stood on and lowers once left."
+[
+	spawnflags(flags) =
+	[
+		1 : "Low trigger" : 0 : "Only the bottom of its travel triggers it."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	height(integer) : "Travel" : 0 : "How far it moves; worked out from its size when 0."
+	speed(integer) : "Speed" : 150
+	sounds(choices) : "Sound" : 2 =
+	[
+		1 : "Base, fast"
+		2 : "Chain, slow"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname) color(0 255 200) = func_train : "A mover that follows a chain of path_corners once fired."
+[
+	target(target_destination) : "First stop"
+	speed(integer) : "Speed" : 100
+	dmg(integer) : "Crush damage" : 2
+	sounds(choices) : "Sound" : 0 =
+	[
+		0 : "None"
+		1 : "Ratchet metal"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname) color(128 128 128) = func_wall : "A solid brush entity; firing it swaps to its alternate textures."
+[]
+
+@SolidClass base(Appearflags) color(128 128 200) = func_illusionary : "A brush entity the player can walk through."
+[]
+
+@SolidClass base(Appearflags) color(200 80 80) = func_episodegate : "A wall that blocks the way back into an episode the player has finished."
+[
+	spawnflags(flags) =
+	[
+		1 : "Episode 1" : 0
+		2 : "Episode 2" : 0
+		4 : "Episode 3" : 0
+		8 : "Episode 4" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@SolidClass base(Appearflags) color(200 40 40) = func_bossgate : "A wall that disappears once all four episodes are finished."
+[]
+
+// Triggers
+
+@SolidClass base(Trigger) color(200 120 255) = trigger_multiple : "Fires its targets every time it is touched, with a pause between."
+[
+	spawnflags(flags) =
+	[
+		1 : "Not touchable" : 0 : "Only fires when it is itself fired."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	wait(float) : "Wait" : "0.2" : "Seconds before it can fire again."
+]
+
+@SolidClass base(Trigger) color(200 120 255) = trigger_once : "Fires its targets the first time it is touched, then goes away."
+[
+	spawnflags(flags) =
+	[
+		1 : "Not touchable" : 0 : "Only fires when it is itself fired."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@SolidClass base(Trigger) color(255 220 0) = trigger_secret : "Counts as a secret when found and fires its targets."
+[
+	sounds(choices) : "Sound" : 1 =
+	[
+		1 : "Secret"
+		2 : "Beeps"
+	]
+]
+
+@PointClass base(Targetname, Fires) color(200 120 255) size(-8 -8 -8, 8 8 8) = trigger_relay : "Passes being fired on to its targets, after a delay if set."
+[]
+
+@PointClass base(Appearflags, Targetname, Fires) color(200 120 255) size(-8 -8 -8, 8 8 8) = trigger_counter : "Fires its targets after it has been fired a number of times."
+[
+	spawnflags(flags) =
+	[
+		1 : "No message" : 0 : "Hides the countdown messages."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	count(integer) : "Count" : 2
+]
+
+@SolidClass base(Appearflags, Targetname) color(255 0 255) = trigger_teleport : "Sends whoever enters it to an info_teleport_destination."
+[
+	spawnflags(flags) =
+	[
+		1 : "Player only" : 0
+		2 : "Silent" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	target(target_destination) : "Destination"
+]
+
+@SolidClass base(Appearflags, Targetname) color(200 120 255) = trigger_setskill : "Changes the skill level for the next map."
+[
+	message(choices) : "Skill" : "1" =
+	[
+		"0" : "Easy"
+		"1" : "Normal"
+		"2" : "Hard"
+		"3" : "Nightmare"
+	]
+]
+
+@SolidClass base(Appearflags, Targetname, Fires) color(200 120 255) = trigger_onlyregistered : "Fires its targets only in the registered game; otherwise shows its message."
+[]
+
+@SolidClass base(Appearflags, Targetname) color(255 60 60) = trigger_hurt : "Damages whatever is inside it."
+[
+	dmg(integer) : "Damage" : 5 : "Per hit, about once a second."
+]
+
+@SolidClass base(Appearflags, Targetname) color(255 140 60) = trigger_push : "Pushes whatever enters it."
+[
+	spawnflags(flags) =
+	[
+		1 : "Push once" : 0 : "Goes away after the first push."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	speed(integer) : "Speed" : 1000
+	angle(integer) : "Direction" : 0 : "Yaw in degrees; -1 is up and -2 is down."
+]
+
+@SolidClass base(Appearflags) color(255 140 60) = trigger_monsterjump : "Makes monsters that walk in leap forward."
+[
+	speed(integer) : "Forward speed" : 200
+	height(integer) : "Upward speed" : 200
+	angle(integer) : "Direction" : 0 : "Yaw in degrees."
+]
+
+@SolidClass base(Appearflags, Targetname) color(255 255 255) = trigger_changelevel : "Ends the level and loads another."
+[
+	spawnflags(flags) =
+	[
+		1 : "No intermission" : 0 : "Skips the scoreboard."
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	map(string) : "Next map" : : "The map's name without .bsp."
+]
+
+// Items
+
+@PointClass base(Item) color(0 255 120) size(0 0 0, 32 32 32) = item_health : "A health box: 25 points, or as set by the flags."
+[
+	spawnflags(flags) =
+	[
+		1 : "Rotten (15)" : 0
+		2 : "Megahealth (100)" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@PointClass base(Item) color(0 200 0) size(-16 -16 0, 16 16 32) = item_armor1 : "Green armor, 100 points."
+[]
+
+@PointClass base(Item) color(220 220 0) size(-16 -16 0, 16 16 32) = item_armor2 : "Yellow armor, 150 points."
+[]
+
+@PointClass base(Item) color(220 0 0) size(-16 -16 0, 16 16 32) = item_armorInv : "Red armor, 200 points."
+[]
+
+@PointClass base(Weapon) = weapon_supershotgun : "The double-barrelled shotgun."
+[]
+
+@PointClass base(Weapon) = weapon_nailgun : "The nailgun."
+[]
+
+@PointClass base(Weapon) = weapon_supernailgun : "The perforator, a heavier nailgun."
+[]
+
+@PointClass base(Weapon) = weapon_grenadelauncher : "The grenade launcher."
+[]
+
+@PointClass base(Weapon) = weapon_rocketlauncher : "The rocket launcher."
+[]
+
+@PointClass base(Weapon) = weapon_lightning : "The thunderbolt."
+[]
+
+@PointClass base(Ammo) = item_shells : "Shotgun shells."
+[]
+
+@PointClass base(Ammo) = item_spikes : "Nails."
+[]
+
+@PointClass base(Ammo) = item_rockets : "Rockets and grenades."
+[]
+
+@PointClass base(Ammo) = item_cells : "Thunderbolt cells."
+[]
+
+@PointClass base(Item) color(200 200 255) size(-16 -16 -24, 16 16 32) = item_key1 : "The silver key; its model follows the level's theme."
+[]
+
+@PointClass base(Item) color(255 200 0) size(-16 -16 -24, 16 16 32) = item_key2 : "The gold key; its model follows the level's theme."
+[]
+
+@PointClass base(Item) color(255 0 255) size(-16 -16 -24, 16 16 32) = item_sigil : "An episode's rune."
+[
+	spawnflags(flags) =
+	[
+		1 : "Episode 1" : 0
+		2 : "Episode 2" : 0
+		4 : "Episode 3" : 0
+		8 : "Episode 4" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@PointClass base(Item) color(255 40 40) size(-16 -16 -24, 16 16 32) = item_artifact_invulnerability : "The pentagram of protection."
+[]
+
+@PointClass base(Item) color(40 255 40) size(-16 -16 -24, 16 16 32) = item_artifact_envirosuit : "The biosuit, for breathing underwater and wading through slime."
+[]
+
+@PointClass base(Item) color(200 200 200) size(-16 -16 -24, 16 16 32) = item_artifact_invisibility : "The ring of shadows."
+[]
+
+@PointClass base(Item) color(40 40 255) size(-16 -16 -24, 16 16 32) = item_artifact_super_damage : "Quad damage."
+[]
+
+// Monsters
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_army : "A grunt with a shotgun."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 40) = monster_dog : "A rottweiler."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_ogre : "An ogre with a chainsaw and grenades."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_ogre_marksman : "Another name for the ogre."
+[]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_knight : "A knight with a sword."
+[]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_hell_knight : "A death knight that also throws fire."
+[]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_wizard : "A scrag, which flies and spits."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_demon1 : "A fiend that leaps at its prey."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_shambler : "A shambler, big and hard to kill."
+[]
+
+@PointClass base(Appearflags, Facing, Targetname, Target) color(220 0 0) size(-16 -16 -24, 16 16 32) = monster_zombie : "A zombie that only stays down when gibbed."
+[
+	spawnflags(flags) =
+	[
+		1 : "Crucified" : 0 : "Hangs on a wall and never fights."
+		2 : "Ambush" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_enforcer : "An enforcer with a laser gun."
+[]
+
+@PointClass base(Monster) size(-32 -32 -24, 32 32 48) = monster_shalrath : "A vore that fires homing spikes."
+[]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 24) = monster_tarbaby : "A spawn, a bouncing blob that explodes."
+[]
+
+@PointClass base(Monster) size(-16 -16 -24, 16 16 24) = monster_fish : "A rotfish; place it in water."
+[]
+
+@PointClass base(Monster) size(-160 -128 -24, 160 128 256) = monster_oldone : "Shub-Niggurath, the final boss, beaten by telefragging."
+[]
+
+@PointClass base(Monster) size(-128 -128 -24, 128 128 256) = monster_boss : "Chthon, which rises from lava when fired and is beaten with event_lightning."
+[]
+
+// Miscellaneous
+
+@PointClass base(Appearflags) color(255 80 0) size(-8 -8 -8, 8 8 8) = misc_fireball : "Throws lava balls upward."
+[
+	speed(integer) : "Speed" : 100
+]
+
+@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 64) = misc_explobox : "A large exploding box."
+[]
+
+@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 32) = misc_explobox2 : "A small exploding box."
+[]
+
+@PointClass base(Appearflags, Targetname) color(0 255 255) size(-8 -8 -8, 8 8 8) = misc_teleporttrain : "The floating teleporter ball of the final level, which follows path_corners."
+[
+	target(target_destination) : "First stop"
+	speed(integer) : "Speed" : 100
+]
+
+@PointClass base(Appearflags, Facing, Targetname) color(200 200 0) size(-8 -8 -8, 8 8 8) = trap_spikeshooter : "Shoots once each time it is fired."
+[
+	spawnflags(flags) =
+	[
+		1 : "Big spike" : 0
+		2 : "Laser" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+]
+
+@PointClass base(Appearflags, Facing) color(200 200 0) size(-8 -8 -8, 8 8 8) = trap_shooter : "Shoots over and over."
+[
+	spawnflags(flags) =
+	[
+		1 : "Big spike" : 0
+		2 : "Laser" : 0
+		256 : "Not on Easy" : 0
+		512 : "Not on Normal" : 0
+		1024 : "Not on Hard" : 0
+		2048 : "Not in Deathmatch" : 0
+	]
+	wait(float) : "Interval" : "1" : "Seconds between shots."
+	nextthink(float) : "First shot" : "0" : "Seconds before the first shot, to stagger several shooters."
+]
+
+@PointClass base(Appearflags) color(0 150 255) size(-8 -8 -8, 8 8 8) = air_bubbles : "A stream of bubbles; place it under water."
+[]
+
+@PointClass base(Targetname) color(255 255 255) size(-8 -8 -8, 8 8 8) = event_lightning : "Strikes Chthon with lightning between the two func_doors named lightning."
+[]
+
+@PointClass color(160 160 160) size(-16 -16 -24, 16 16 32) = viewthing : "Shows the player model, for testing."
+[]
+
+@PointClass color(160 160 160) size(-8 -8 -8, 8 8 8) = misc_noisemaker : "Plays a stream of test sounds."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_suck_wind : "Looping wind sound."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_drone : "Looping low drone."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_flouro_buzz : "Looping fluorescent buzz."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_drip : "Dripping water."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_comp_hum : "Looping computer hum."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_thunder : "Distant thunder now and then."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_light_buzz : "Looping electric buzz."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_swamp1 : "Swamp noises, first set."
+[]
+
+@PointClass color(150 255 150) size(-8 -8 -8, 8 8 8) = ambient_swamp2 : "Swamp noises, second set."
+[]
+
+// Compiler entities, merged into the world by qbsp
+
+@SolidClass color(128 128 128) = func_group : "Brushes kept together for editing; the compiler treats them as world."
+[]
+
+@SolidClass color(128 128 128) = func_detail : "World brushes that do not block visibility, for ericw-tools' qbsp."
+[]

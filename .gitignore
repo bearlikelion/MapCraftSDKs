@@ -1,2 +1,5 @@
 *.zip
 dist/
+# Built by MapCraft's `cargo xtask plugins` from its plugins workspace.
+/surfsup/plugins/
+/quake/plugins/

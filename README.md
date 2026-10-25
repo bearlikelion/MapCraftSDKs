@@ -7,8 +7,11 @@ MapCraft's SDK Manager (File > SDK Manager…) reads `index.json` from here, so 
 ## What is here
 
 - `index.json`: the registry MapCraft reads, at `https://raw.githubusercontent.com/bearlikelion/MapCraftSDKs/main/index.json`.
-- `template/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
-- `sdks/<id>/`: SDKs whose source lives in this repository; an SDK can also live in its own repository and only add an entry to `index.json`.
+- `templates/basic/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
+- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/` and `quake/`; an SDK can also live in its own repository and only add an entry to `index.json`.
+
+This repository is also MapCraft's `sdks/` folder, as a git submodule, which is why SDK folders sit at the top level.
+MapCraft builds the first-party plugins into `surfsup/plugins/` and `quake/plugins/` with `cargo xtask plugins`; those builds are not committed.
 - `.github/workflows/check.yml`: the checks every pull request runs.
 
 ## Publishing an SDK
@@ -24,7 +27,7 @@ my-game/
   README.md         what the SDK is for and how to set it up
 ```
 
-Start from `template/`, or make a fresh copy with `mapcraft-cli sdk new my-game --id my-game --name "My Game"`, or with File > SDK Manager… > Create.
+Start from `templates/basic/`, or make a fresh copy with `mapcraft-cli sdk new my-game --id my-game --name "My Game"`, or with File > SDK Manager… > Create.
 The id is saved in every map made with the SDK, so choose it once: lowercase letters, digits, `_` and `-`.
 Fill in `description`, `author`, `license` and `homepage` in `sdk.toml`; they are copied into the registry entry.
 Every key is described in [`docs/sdk-format.md`](https://github.com/bearlikelion/MapCraft/blob/main/docs/sdk-format.md) in the MapCraft repository.
@@ -75,13 +78,13 @@ MapCraft offers Update when the registry's version is newer than the installed o
 
 ### 5. Open a pull request
 
-Put the SDK folder in `sdks/<id>/` if its source should live here, and change `index.json` in the same pull request.
+Put the SDK folder in `<id>/` at the top level if its source should live here, and change `index.json` in the same pull request.
 
 ## Review checks
 
 The workflow runs on every pull request:
 
-- `template/` and every folder in `sdks/` pass `mapcraft-cli sdk check` with no failures.
+- `templates/basic/` and every SDK folder pass `mapcraft-cli sdk check` with no failures.
 - `index.json` parses: known format and version, valid and unique ids, 64-digit checksums, sizes up to 512 MiB.
 - Every entry installs into an empty data folder: it downloads, matches its `sha256`, unpacks safely, holds an `sdk.toml` with the same id, and then passes the check.
 

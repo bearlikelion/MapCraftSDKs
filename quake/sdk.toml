@@ -1,0 +1,50 @@
+id = "quake"
+name = "Quake"
+version = "1"
+description = "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles."
+plugins = ["quake"]
+# Quake units are close enough to inches, MapCraft's own unit.
+units_per_meter = 39.37
+fgd = ["fgd/quake.fgd"]
+
+[textures]
+default = "64_grey_1"
+
+# The plugin reads WADs from both folders and the palette from id1/pak0.pak, never writing to either.
+[files]
+roots = ["${wads}", "${quake}"]
+
+[paths.quake]
+prompt = "Quake folder (the one holding id1)"
+
+[paths.wads]
+prompt = "Folder holding your texture WADs"
+
+[paths.ericw]
+prompt = "ericw-tools folder holding qbsp, vis and light"
+
+[paths.engine]
+prompt = "Quake engine executable, such as ironwail or Quakespasm"
+kind = "file"
+
+# The .map goes in a build folder beside the map, so a mapper's own .map of the same name is never overwritten.
+[[compile]]
+name = "Compile"
+steps = [
+    { export = "map", to = "${map_dir}/build/${map_name}.map" },
+    { run = "${ericw}/qbsp", args = ["-wadpath", "${wads}", "${map_dir}/build/${map_name}.map"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/vis", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/light", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${quake}/id1/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Build and play"
+steps = [
+    { export = "map", to = "${map_dir}/build/${map_name}.map" },
+    { run = "${ericw}/qbsp", args = ["-wadpath", "${wads}", "${map_dir}/build/${map_name}.map"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/vis", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/light", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${quake}/id1/maps/${map_name}.bsp" },
+    { run = "${engine}", args = ["-basedir", "${quake}", "+map", "${map_name}"], cwd = "${quake}" },
+]
