@@ -1,0 +1,56 @@
+name: Check SDKs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out MapCraft
+        uses: actions/checkout@v4
+        with:
+          repository: bearlikelion/MapCraft
+          path: mapcraft
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: mapcraft
+
+      - name: Build mapcraft-cli
+        run: cargo build --release -p mapcraft-cli --manifest-path mapcraft/Cargo.toml
+
+      - name: Check the template and every SDK folder
+        run: |
+          shopt -s nullglob
+          cli=mapcraft/target/release/mapcraft-cli
+          status=0
+          for dir in template sdks/*/; do
+            echo "::group::$dir"
+            "$cli" sdk check "$dir" || status=1
+            echo "::endgroup::"
+          done
+          exit $status
+
+      - name: Install and check every registry entry
+        run: |
+          cli=mapcraft/target/release/mapcraft-cli
+          data="$RUNNER_TEMP/mapcraft-data"
+          "$cli" sdk list --registry index.json
+          status=0
+          for id in $(jq -r '.sdks[].id' index.json); do
+            echo "::group::$id"
+            if "$cli" sdk install "$id" --registry index.json --data "$data"; then
+              "$cli" sdk check "$data/sdks/$id" || status=1
+            else
+              status=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $status
