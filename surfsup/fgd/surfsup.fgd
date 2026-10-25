@@ -85,3 +85,11 @@
 @PointClass size(-64 -64 0, 64 64 16) color(0 255 0) = starting_platform : "A start platform with its own start zone." []
 
 @PointClass size(-64 -64 0, 64 64 16) color(255 0 0) = finish_line : "A landing platform with a finish zone." []
+
+@AutoVisGroup = "Zones"
+[
+	"Timing" [ "zone_start" "zone_finish" "zone_split" "zone_checkpoint" ]
+	"Teleports" [ "teleport_zone" "zone_point_tp" "teleport_destination" ]
+	"Hazards" [ "kill_box" "zone_respawn" ]
+	"Movement" [ "zone_booster" "bhop_zone" ]
+]

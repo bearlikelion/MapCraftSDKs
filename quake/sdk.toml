@@ -6,6 +6,8 @@ plugins = ["quake"]
 # Quake units are close enough to inches, MapCraft's own unit.
 units_per_meter = 39.37
 fgd = ["fgd/quake.fgd"]
+# The classic BSP format and engines cannot reach past this on any axis.
+map_size = [-4096, 4096]
 
 [textures]
 default = "64_grey_1"

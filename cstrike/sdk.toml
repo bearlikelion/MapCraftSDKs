@@ -1,0 +1,31 @@
+id = "cstrike"
+name = "Counter-Strike: Source"
+version = "1"
+description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles."
+plugins = ["source", "source-bsp"]
+# The game's own entity definitions, read from the install beside the cstrike folder.
+fgd = ["${cstrike}/../bin/cstrike.fgd"]
+# Source's coordinate limit; vbsp leaks or fails past it.
+map_size = [-16384, 16384]
+
+[textures]
+default = "dev/dev_measuregeneric01b"
+scale = 0.25
+
+# The plugins read materials from the game's packages; CS:S uses HL2's too.
+[files]
+roots = ["${cstrike}", "${cstrike}/../hl2"]
+
+[paths.cstrike]
+prompt = "Counter-Strike: Source game folder (the cstrike folder)"
+
+# The .vmf goes in a build folder beside the map, so a mapper's own .vmf of the same name is never overwritten.
+[[compile]]
+name = "Compile"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], wine = true, cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]

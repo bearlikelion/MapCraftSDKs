@@ -8,10 +8,10 @@ MapCraft's SDK Manager (File > SDK Manager…) reads `index.json` from here, so 
 
 - `index.json`: the registry MapCraft reads, at `https://raw.githubusercontent.com/bearlikelion/MapCraftSDKs/main/index.json`.
 - `templates/basic/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
-- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/` and `quake/`; an SDK can also live in its own repository and only add an entry to `index.json`.
+- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/` and `cstrike/`; an SDK can also live in its own repository and only add an entry to `index.json`.
 
 This repository is also MapCraft's `sdks/` folder, as a git submodule, which is why SDK folders sit at the top level.
-MapCraft builds the first-party plugins into `surfsup/plugins/` and `quake/plugins/` with `cargo xtask plugins`; those builds are not committed.
+MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/` and `cstrike/plugins/` with `cargo xtask plugins`; those builds are not committed.
 - `.github/workflows/check.yml`: the checks every pull request runs.
 
 ## Publishing an SDK

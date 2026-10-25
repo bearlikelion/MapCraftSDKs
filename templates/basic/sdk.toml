@@ -19,6 +19,10 @@ units_per_meter = 39.37
 # Entity definitions, merged in order.
 fgd = ["fgd/entities.fgd"]
 
+# The lowest and highest coordinate maps may use on every axis, if the engine has a limit.
+# Without it, an FGD @mapsize sets the limit; without either, maps are unbounded.
+# map_size = [-16384, 16384]
+
 [textures]
 # Folders searched for materials; ${game} is the folder the user picks in SDK Settings.
 roots = ["${game}/textures"]
