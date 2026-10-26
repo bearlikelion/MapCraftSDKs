@@ -132,16 +132,16 @@
 
 // Player starts and markers
 
-@PointClass base(Facing) color(0 255 0) size(-16 -16 -24, 16 16 32) = info_player_start : "Where a single player game begins."
+@PointClass base(Facing) color(0 255 0) size(-16 -16 -24, 16 16 32) studio("progs/player.mdl") = info_player_start : "Where a single player game begins."
 []
 
-@PointClass base(Facing) color(0 200 0) size(-16 -16 -24, 16 16 32) = info_player_start2 : "Where the player begins on the start map after finishing an episode."
+@PointClass base(Facing) color(0 200 0) size(-16 -16 -24, 16 16 32) studio("progs/player.mdl") = info_player_start2 : "Where the player begins on the start map after finishing an episode."
 []
 
-@PointClass base(Facing) color(255 120 0) size(-16 -16 -24, 16 16 32) = info_player_deathmatch : "A deathmatch spawn point."
+@PointClass base(Facing) color(255 120 0) size(-16 -16 -24, 16 16 32) studio("progs/player.mdl") = info_player_deathmatch : "A deathmatch spawn point."
 []
 
-@PointClass base(Facing) color(0 160 255) size(-16 -16 -24, 16 16 32) = info_player_coop : "A cooperative play spawn point."
+@PointClass base(Facing) color(0 160 255) size(-16 -16 -24, 16 16 32) studio("progs/player.mdl") = info_player_coop : "A cooperative play spawn point."
 []
 
 @PointClass color(255 80 255) size(-16 -16 -16, 16 16 16) = info_intermission : "A camera for the end of level scoreboard; one is picked at random."
@@ -178,16 +178,16 @@
 @PointClass base(Lighting) = light_globe : "A small glowing ball."
 []
 
-@PointClass base(Lighting) = light_torch_small_walltorch : "A torch for walls."
+@PointClass base(Lighting) studio("progs/flame.mdl") = light_torch_small_walltorch : "A torch for walls."
 []
 
-@PointClass base(Lighting) = light_flame_large_yellow : "A large burning flame."
+@PointClass base(Lighting) studio("progs/flame2.mdl") = light_flame_large_yellow : "A large burning flame."
 []
 
-@PointClass base(Lighting) = light_flame_small_yellow : "A small yellow flame."
+@PointClass base(Lighting) studio("progs/flame2.mdl") = light_flame_small_yellow : "A small yellow flame."
 []
 
-@PointClass base(Lighting) = light_flame_small_white : "A small white flame."
+@PointClass base(Lighting) studio("progs/flame2.mdl") = light_flame_small_white : "A small white flame."
 []
 
 // Brush entities
@@ -438,7 +438,7 @@
 
 // Items
 
-@PointClass base(Item) color(0 255 120) size(0 0 0, 32 32 32) = item_health : "A health box: 25 points, or as set by the flags."
+@PointClass base(Item) color(0 255 120) size(0 0 0, 32 32 32) studio("maps/b_bh25.bsp") = item_health : "A health box: 25 points, or as set by the flags."
 [
 	spawnflags(flags) =
 	[
@@ -451,52 +451,52 @@
 	]
 ]
 
-@PointClass base(Item) color(0 200 0) size(-16 -16 0, 16 16 32) = item_armor1 : "Green armor, 100 points."
+@PointClass base(Item) color(0 200 0) size(-16 -16 0, 16 16 32) studio("progs/armor.mdl") = item_armor1 : "Green armor, 100 points."
 []
 
-@PointClass base(Item) color(220 220 0) size(-16 -16 0, 16 16 32) = item_armor2 : "Yellow armor, 150 points."
+@PointClass base(Item) color(220 220 0) size(-16 -16 0, 16 16 32) studio("progs/armor.mdl") = item_armor2 : "Yellow armor, 150 points."
 []
 
-@PointClass base(Item) color(220 0 0) size(-16 -16 0, 16 16 32) = item_armorInv : "Red armor, 200 points."
+@PointClass base(Item) color(220 0 0) size(-16 -16 0, 16 16 32) studio("progs/armor.mdl") = item_armorInv : "Red armor, 200 points."
 []
 
-@PointClass base(Weapon) = weapon_supershotgun : "The double-barrelled shotgun."
+@PointClass base(Weapon) studio("progs/g_shot.mdl") = weapon_supershotgun : "The double-barrelled shotgun."
 []
 
-@PointClass base(Weapon) = weapon_nailgun : "The nailgun."
+@PointClass base(Weapon) studio("progs/g_nail.mdl") = weapon_nailgun : "The nailgun."
 []
 
-@PointClass base(Weapon) = weapon_supernailgun : "The perforator, a heavier nailgun."
+@PointClass base(Weapon) studio("progs/g_nail2.mdl") = weapon_supernailgun : "The perforator, a heavier nailgun."
 []
 
-@PointClass base(Weapon) = weapon_grenadelauncher : "The grenade launcher."
+@PointClass base(Weapon) studio("progs/g_rock.mdl") = weapon_grenadelauncher : "The grenade launcher."
 []
 
-@PointClass base(Weapon) = weapon_rocketlauncher : "The rocket launcher."
+@PointClass base(Weapon) studio("progs/g_rock2.mdl") = weapon_rocketlauncher : "The rocket launcher."
 []
 
-@PointClass base(Weapon) = weapon_lightning : "The thunderbolt."
+@PointClass base(Weapon) studio("progs/g_light.mdl") = weapon_lightning : "The thunderbolt."
 []
 
-@PointClass base(Ammo) = item_shells : "Shotgun shells."
+@PointClass base(Ammo) studio("maps/b_shell0.bsp") = item_shells : "Shotgun shells."
 []
 
-@PointClass base(Ammo) = item_spikes : "Nails."
+@PointClass base(Ammo) studio("maps/b_nail0.bsp") = item_spikes : "Nails."
 []
 
-@PointClass base(Ammo) = item_rockets : "Rockets and grenades."
+@PointClass base(Ammo) studio("maps/b_rock0.bsp") = item_rockets : "Rockets and grenades."
 []
 
-@PointClass base(Ammo) = item_cells : "Thunderbolt cells."
+@PointClass base(Ammo) studio("maps/b_batt0.bsp") = item_cells : "Thunderbolt cells."
 []
 
-@PointClass base(Item) color(200 200 255) size(-16 -16 -24, 16 16 32) = item_key1 : "The silver key; its model follows the level's theme."
+@PointClass base(Item) color(200 200 255) size(-16 -16 -24, 16 16 32) studio("progs/w_s_key.mdl") = item_key1 : "The silver key; its model follows the level's theme."
 []
 
-@PointClass base(Item) color(255 200 0) size(-16 -16 -24, 16 16 32) = item_key2 : "The gold key; its model follows the level's theme."
+@PointClass base(Item) color(255 200 0) size(-16 -16 -24, 16 16 32) studio("progs/w_g_key.mdl") = item_key2 : "The gold key; its model follows the level's theme."
 []
 
-@PointClass base(Item) color(255 0 255) size(-16 -16 -24, 16 16 32) = item_sigil : "An episode's rune."
+@PointClass base(Item) color(255 0 255) size(-16 -16 -24, 16 16 32) studio("progs/end1.mdl") = item_sigil : "An episode's rune."
 [
 	spawnflags(flags) =
 	[
@@ -511,48 +511,48 @@
 	]
 ]
 
-@PointClass base(Item) color(255 40 40) size(-16 -16 -24, 16 16 32) = item_artifact_invulnerability : "The pentagram of protection."
+@PointClass base(Item) color(255 40 40) size(-16 -16 -24, 16 16 32) studio("progs/invulner.mdl") = item_artifact_invulnerability : "The pentagram of protection."
 []
 
-@PointClass base(Item) color(40 255 40) size(-16 -16 -24, 16 16 32) = item_artifact_envirosuit : "The biosuit, for breathing underwater and wading through slime."
+@PointClass base(Item) color(40 255 40) size(-16 -16 -24, 16 16 32) studio("progs/suit.mdl") = item_artifact_envirosuit : "The biosuit, for breathing underwater and wading through slime."
 []
 
-@PointClass base(Item) color(200 200 200) size(-16 -16 -24, 16 16 32) = item_artifact_invisibility : "The ring of shadows."
+@PointClass base(Item) color(200 200 200) size(-16 -16 -24, 16 16 32) studio("progs/invisibl.mdl") = item_artifact_invisibility : "The ring of shadows."
 []
 
-@PointClass base(Item) color(40 40 255) size(-16 -16 -24, 16 16 32) = item_artifact_super_damage : "Quad damage."
+@PointClass base(Item) color(40 40 255) size(-16 -16 -24, 16 16 32) studio("progs/quaddama.mdl") = item_artifact_super_damage : "Quad damage."
 []
 
 // Monsters
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_army : "A grunt with a shotgun."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) studio("progs/soldier.mdl") = monster_army : "A grunt with a shotgun."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 40) = monster_dog : "A rottweiler."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 40) studio("progs/dog.mdl") = monster_dog : "A rottweiler."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_ogre : "An ogre with a chainsaw and grenades."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) studio("progs/ogre.mdl") = monster_ogre : "An ogre with a chainsaw and grenades."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_ogre_marksman : "Another name for the ogre."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) studio("progs/ogre.mdl") = monster_ogre_marksman : "Another name for the ogre."
 []
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_knight : "A knight with a sword."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) studio("progs/knight.mdl") = monster_knight : "A knight with a sword."
 []
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_hell_knight : "A death knight that also throws fire."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) studio("progs/hknight.mdl") = monster_hell_knight : "A death knight that also throws fire."
 []
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_wizard : "A scrag, which flies and spits."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) studio("progs/wizard.mdl") = monster_wizard : "A scrag, which flies and spits."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_demon1 : "A fiend that leaps at its prey."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) studio("progs/demon.mdl") = monster_demon1 : "A fiend that leaps at its prey."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 64) = monster_shambler : "A shambler, big and hard to kill."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 64) studio("progs/shambler.mdl") = monster_shambler : "A shambler, big and hard to kill."
 []
 
-@PointClass base(Appearflags, Facing, Targetname, Target) color(220 0 0) size(-16 -16 -24, 16 16 32) = monster_zombie : "A zombie that only stays down when gibbed."
+@PointClass base(Appearflags, Facing, Targetname, Target) color(220 0 0) size(-16 -16 -24, 16 16 32) studio("progs/zombie.mdl") = monster_zombie : "A zombie that only stays down when gibbed."
 [
 	spawnflags(flags) =
 	[
@@ -565,22 +565,22 @@
 	]
 ]
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 40) = monster_enforcer : "An enforcer with a laser gun."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 40) studio("progs/enforcer.mdl") = monster_enforcer : "An enforcer with a laser gun."
 []
 
-@PointClass base(Monster) size(-32 -32 -24, 32 32 48) = monster_shalrath : "A vore that fires homing spikes."
+@PointClass base(Monster) size(-32 -32 -24, 32 32 48) studio("progs/shalrath.mdl") = monster_shalrath : "A vore that fires homing spikes."
 []
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 24) = monster_tarbaby : "A spawn, a bouncing blob that explodes."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 24) studio("progs/tarbaby.mdl") = monster_tarbaby : "A spawn, a bouncing blob that explodes."
 []
 
-@PointClass base(Monster) size(-16 -16 -24, 16 16 24) = monster_fish : "A rotfish; place it in water."
+@PointClass base(Monster) size(-16 -16 -24, 16 16 24) studio("progs/fish.mdl") = monster_fish : "A rotfish; place it in water."
 []
 
-@PointClass base(Monster) size(-160 -128 -24, 160 128 256) = monster_oldone : "Shub-Niggurath, the final boss, beaten by telefragging."
+@PointClass base(Monster) size(-160 -128 -24, 160 128 256) studio("progs/oldone.mdl") = monster_oldone : "Shub-Niggurath, the final boss, beaten by telefragging."
 []
 
-@PointClass base(Monster) size(-128 -128 -24, 128 128 256) = monster_boss : "Chthon, which rises from lava when fired and is beaten with event_lightning."
+@PointClass base(Monster) size(-128 -128 -24, 128 128 256) studio("progs/boss.mdl") = monster_boss : "Chthon, which rises from lava when fired and is beaten with event_lightning."
 []
 
 // Miscellaneous
@@ -590,10 +590,10 @@
 	speed(integer) : "Speed" : 100
 ]
 
-@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 64) = misc_explobox : "A large exploding box."
+@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 64) studio("maps/b_explob.bsp") = misc_explobox : "A large exploding box."
 []
 
-@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 32) = misc_explobox2 : "A small exploding box."
+@PointClass base(Appearflags) color(255 120 0) size(0 0 0, 32 32 32) studio("maps/b_exbox2.bsp") = misc_explobox2 : "A small exploding box."
 []
 
 @PointClass base(Appearflags, Targetname) color(0 255 255) size(-8 -8 -8, 8 8 8) = misc_teleporttrain : "The floating teleporter ball of the final level, which follows path_corners."

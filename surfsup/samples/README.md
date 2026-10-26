@@ -9,4 +9,4 @@
 Zones use `tools/trigger`, so the editor draws them see-through in their FGD color and the Godot extension turns them into invisible areas.
 
 Open it with File > Open, then set the SurfsUp project folder in File > SDK Settings so the materials load.
-To play it, put the MapCraft Godot addon in the SurfsUp project, open the project in the Godot editor once, set the game and Maps folder in SDK Settings, and use Run > Build and play.
+To play it, put the MapCraft Godot addon in the SurfsUp project, set the project folder and Godot editor in SDK Settings, and use Run > Play in SurfsUp project.

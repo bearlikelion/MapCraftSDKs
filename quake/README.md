@@ -22,6 +22,7 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
 - **Importing `.map` files** (File > Import > Quake map):
   - Standard (Quake) and Valve220 brush formats, as TrenchBroom, J.A.C.K., Hammer and older editors write them.
   - Point and brush entities with all their keys in file order; extra surface values from Quake 2 style files are skipped.
+  - The world's keys (`message`, `worldtype`, `light`, `_sunlight` and the rest) go on the map's world where it does not have them yet; `wad` and `mapversion` are left out, since the export writes its own.
   - TrenchBroom layers and groups become groups named after them, nested ones as `Layer / Group / Subgroup`.
   - Texture alignment: Valve220 axes carry over as they are, and Standard faces get Quake's projection from their normal, offsets, rotation and scales, matching what ericw-tools' qbsp compiles.
   - The textures the map uses, from the WADs its `wad` key names (matched by file name, since the key usually holds paths on the mapper's own disk), then every other WAD the SDK can read.
@@ -39,13 +40,16 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
 - **WAD textures**:
   - WAD2 (Quake) textures decoded with Quake's palette, and WAD3 (Half-Life) textures with the palette each one carries.
   - Texture names are lowercase, as Quake ignores case; `*`, `+` and `{` prefixes are kept.
-  - Skies show their front (left) half; `{` textures show palette index 255 as clear.
-  - The material browser lists every texture in the readable WADs.
-    For now it shows each one as its average color; the pictures appear once the editor reads them from the plugin's list.
+  - Skies keep both layers; in the views they show as Quake's scrolling sky does, projected from the view direction with the near clouds over the far ones (not moving). `{` textures show palette index 255 as clear.
+  - The material browser lists every texture in the readable WADs, shrunk when the WADs are big; the textures a map uses are read full size.
+
+- **Models**: monsters, weapons, items, keys, torches and explosive boxes show their Quake models in the views, read from the Quake folder's PAK files (or loose `progs` and `maps` files).
+  - `.mdl` models show their first frame and first skin; `.bsp` brush models, such as the health and ammo boxes, show with their own textures.
+  - The FGD names one model per class, so variants picked by spawnflags (rotten health, big ammo, the yellow and red armor skins) show the default model.
+- **Textures** draw pixel sharp, as Quake draws them, and stay crisp in the distance through mipmaps.
 
 ## What doesn't work yet
 
-- **Worldspawn keys of imported maps** (`wad`, `message`, `worldtype` and the rest) are listed in the Output panel but not applied, because an import cannot set the world's keys yet.
 - **TrenchBroom layer settings** such as "omit from export", hiding, locking and sort order are not kept; layers become plain groups.
 - Quake 3 brush primitives and patches, Quake 2 surface flags, textures inside BSP files, and WADs next to the map but outside the SDK's folders.
 - Displacements and entity connections are not exported, since Quake has neither.

@@ -31,40 +31,23 @@ prompt = "SurfsUp game executable"
 kind = "file"
 
 [paths.maps]
-prompt = "Folder SurfsUp loads map packs from (Maps next to the game)"
+prompt = "Folder SurfsUp loads maps from (Maps next to the game)"
 
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder), for textures of imported BSP maps"
 
-# The project needs the MapCraft Godot addon (godot/addons/mapcraft) and must have been opened
-# in the Godot editor once so the addon is registered.
+# SurfsUp loads .mcmap files straight from its Maps folder, through the MapCraft Godot addon
+# (godot/addons/mapcraft), which the project or game must include.
 [[compile]]
-name = "Import into Godot"
+name = "Play in SurfsUp project"
 steps = [
-    { copy = "${map}", to = "${project}/maps/${map_name}/${map_name}.mcmap" },
-    { run = "${godot}", args = ["--headless", "--path", "${project}", "--import"] },
+    { copy = "${map}", to = "${project}/Maps/${map_name}.mcmap" },
+    { run = "${godot}", args = ["--path", "${project}", "+map", "${map_name}"] },
 ]
 
 [[compile]]
-name = "Build map pack"
+name = "Play in SurfsUp"
 steps = [
-    { copy = "${map}", to = "${project}/maps/${map_name}/${map_name}.mcmap" },
-    { run = "${godot}", args = ["--headless", "--path", "${project}", "--import"] },
-    { run = "${godot}", args = ["--headless", "--path", "${project}", "-s", "res://addons/mapcraft/tools/pack_map.gd", "--", "res://maps/${map_name}/${map_name}.mcmap", "res://maps/${map_name}/${map_name}.scn", "${maps}/${map_name}.pck"] },
-]
-
-[[compile]]
-name = "Build and play"
-steps = [
-    { copy = "${map}", to = "${project}/maps/${map_name}/${map_name}.mcmap" },
-    { run = "${godot}", args = ["--headless", "--path", "${project}", "--import"] },
-    { run = "${godot}", args = ["--headless", "--path", "${project}", "-s", "res://addons/mapcraft/tools/pack_map.gd", "--", "res://maps/${map_name}/${map_name}.mcmap", "res://maps/${map_name}/${map_name}.scn", "${maps}/${map_name}.pck"] },
+    { copy = "${map}", to = "${maps}/${map_name}.mcmap" },
     { run = "${game}", args = ["+map", "${map_name}"] },
-]
-
-# For CS:S maps imported to be zoned: v3 reads zones for its BSP maps from these files at import time.
-[[compile]]
-name = "Export zones to SurfsUp"
-steps = [
-    { export = "zon", to = "${project}/Resources/SurfZones/${map_name}.zon" },
 ]

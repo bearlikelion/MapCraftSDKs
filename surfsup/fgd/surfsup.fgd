@@ -13,65 +13,88 @@
 [
 	course_id(integer) : "Course" : 0 : "0 is the main course, higher numbers are bonuses."
 	play_sfx(boolean) : "Play sound" : 1
+	run_direction(vector) : "Run direction" : "0 0 0" : "The way the course runs; leaving against it does not start a run. 0 0 0 lets any exit start one."
 ]
 
 @SolidClass base(Zone) color(255 0 0) = zone_finish : "Stops the run timer."
 [
-	course_id(integer) : "Course" : 0
-	reset_staged_map(boolean) : "Reset staged map" : 0
-	reset_on_entry(boolean) : "Reset on entry" : 0
+	course_id(integer) : "Course" : 0 : "The course this zone finishes: 0 is the main course, higher numbers are bonuses."
+	reset_staged_map(boolean) : "Reset staged map" : 0 : "Clear the stage the player would respawn at."
+	reset_on_entry(boolean) : "Reset on entry" : 0 : "Send the player back to the spawn as they enter."
 ]
 
 @SolidClass base(Zone) color(160 0 0) = kill_box : "Sends the player back to their respawn point."
 [
 	play_sfx(boolean) : "Play sound" : 0
-	disabled_in_freestyle(boolean) : "Disabled in freestyle" : 0
+	kill_kind(choices) : "Kind" : "killbox" : "What kills the player, for achievements." =
+	[
+		"killbox" : "Kill box"
+		"lava" : "Lava"
+		"water" : "Water"
+	]
+	disabled_in_freestyle(boolean) : "Disabled in freestyle" : 0 : "Freestyle players pass through, for bounds that only guard the timed route."
 ]
 
 @SolidClass base(Zone) color(0 160 255) = zone_split : "Records a split time."
 [
-	split_index(integer) : "Split index" : -1
-	course_id(integer) : "Course" : 0
+	split_index(integer) : "Split index" : -1 : "Order from 0 at the first split after the start; keep it stable, as scores store splits by position."
+	course_id(integer) : "Course" : 0 : "0 is the main course; splits on bonus courses never record."
 ]
 
-@SolidClass base(Zone) color(0 200 200) = zone_checkpoint : "Saves the player's progress."
+@SolidClass base(Zone) color(0 200 200) = zone_checkpoint : "A jump area: players can bunny hop inside without the floor resetting their run."
 [
-	pause_score(boolean) : "Pause score" : 0
-	keep_jump_on_teleport(boolean) : "Keep jump on teleport" : 0
+	pause_score(boolean) : "Pause score" : 0 : "Keep the run going but stop scoring while the player is inside."
+	keep_jump_on_teleport(boolean) : "Keep jump on teleport" : 0 : "Players teleported out keep counting as inside."
 ]
 
 @SolidClass base(Zone) color(200 0 255) = teleport_zone : "Teleports the player to a teleport destination."
 [
 	next_stage(target_destination) : "Destination"
-	kill_velocity(boolean) : "Kill velocity" : 0
-	cancel_run(boolean) : "Cancel run" : 0
-	align_to_spawn(boolean) : "Align to destination" : 1
-	keep_offset(boolean) : "Keep offset" : 0
+	do_not_set_spawn(boolean) : "Keep respawn" : 0 : "Leave the player's respawn point alone instead of moving it to the destination."
+	kill_velocity(boolean) : "Kill velocity" : 0 : "Stop the player."
+	keep_offset(boolean) : "Keep offset" : 0 : "Carry the player's offset from the teleport over to the destination."
+	align_to_spawn(boolean) : "Align to destination" : 1 : "Turn the player to face the way the destination faces."
+	cancel_run(boolean) : "Cancel run" : 0 : "End the run; for teleports that leave the course. Stage teleports leave it off."
+	to_current_stage(boolean) : "Back to current stage" : 0 : "Mid-run, send the player to the start of their current stage instead: a catcher for staged maps."
+	filter_name(string) : "Only for name" : "" : "Fire only for a player with this activator name, like Source's filter_activator_name."
+	filter_negated(boolean) : "Invert name filter" : 0 : "Fire for every name except Only for name."
 ]
 
 @SolidClass base(Zone) color(255 255 0) = zone_booster : "Pushes the player."
 [
 	boost_velocity(float) : "Boost velocity" : "1000"
-	boost_direction(vector) : "Boost direction" : "0 0 0"
-	freeze_gravity(boolean) : "Freeze gravity" : 1
+	boost_mode(choices) : "Mode" : 0 : "How the boost combines with the player's speed." =
+	[
+		0 : "Add"
+		1 : "Set"
+		2 : "Multiply"
+	]
+	boost_direction(vector) : "Boost direction" : "0 0 0" : "0 0 0 boosts along the player's heading."
+	freeze_gravity(boolean) : "Freeze gravity" : 1 : "Keep a fresh boost from being dragged into the floor, which resets a surf run."
+	boost_on_exit(boolean) : "Boost on exit" : 0 : "Boost as the player leaves the zone, like Source boosters on OnEndTouch."
 ]
 
-@SolidClass base(Zone) color(255 200 100) = zone_respawn : "Changes where the player respawns."
+@SolidClass base(Zone) color(255 200 100) = zone_respawn : "Changes where the player respawns, and counts as a checkpoint on maps with no splits."
 [
 	respawn(target_destination) : "Respawn at"
-	is_alt_spawn(boolean) : "Alternative spawn" : 0
-	bhop_area(boolean) : "Bunny hop area" : 0
+	is_alt_spawn(boolean) : "Alternative spawn" : 0 : "Mark the respawn as an alternative one, which records no checkpoint."
+	bhop_area(boolean) : "Bunny hop area" : 0 : "Also a jump area, so the floor inside does not reset the run."
 ]
 
 @SolidClass base(Zone) color(150 0 200) = zone_point_tp : "Teleports the player to a point."
 [
 	target(target_destination) : "Destination"
-	reset_velocity_on_teleport(boolean) : "Reset velocity" : 0
-	reset_view_on_teleport(boolean) : "Reset view" : 0
-	cancel_run(boolean) : "Cancel run" : 1
+	reset_velocity_on_teleport(boolean) : "Reset velocity" : 0 : "Stop the player."
+	reset_view_on_teleport(boolean) : "Reset view" : 0 : "Turn the player's view to View yaw and level it."
+	horizontal_view_override(float) : "View yaw" : "0" : "Degrees the view turns to when Reset view is on."
+	cancel_run(boolean) : "Cancel run" : 1 : "End the run; turn off only for teleports that stay inside a timed course."
 ]
 
-@SolidClass color(100 200 255) = bhop_zone : "Bunny hop area." []
+@SolidClass base(Zone) color(100 200 255) = bhop_zone : "Bunny hop area: SurfsUp's jump area, the same zone as zone_checkpoint."
+[
+	pause_score(boolean) : "Pause score" : 0 : "Keep the run going but stop scoring while the player is inside."
+	keep_jump_on_teleport(boolean) : "Keep jump on teleport" : 0 : "Players teleported out keep counting as inside."
+]
 
 @SolidClass color(128 128 128) = func_detail : "Geometry that does not block visibility." []
 
@@ -84,9 +107,29 @@
 	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
 ]
 
-@PointClass size(-64 -64 0, 64 64 16) color(0 255 0) = starting_platform : "A start platform with its own start zone." []
+@PointClass size(-64 -64 0, 64 64 16) color(0 255 0) = starting_platform : "SurfsUp's starting platform, with its own start zone."
+[
+	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
+]
 
-@PointClass size(-64 -64 0, 64 64 16) color(255 0 0) = finish_line : "A landing platform with a finish zone." []
+@PointClass size(-64 -64 0, 64 64 16) color(255 0 0) = finish_line : "SurfsUp's landing platform, with its own finish zone."
+[
+	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
+]
+
+@PointClass size(-16 -16 -16, 16 16 16) color(255 255 128) = light_environment : "Sun, sky and fog for the whole map; a map without one gets a clear daytime sky."
+[
+	angles(angle) : "Sun direction (Pitch Yaw Roll)" : "50 135 0" : "The way the sunlight travels; pitch is degrees below the horizon."
+	sun_color(color255) : "Sun color" : "255 245 230"
+	sun_energy(float) : "Sun brightness" : "1"
+	shadows(boolean) : "Shadows" : 1
+	sky_top_color(color255) : "Sky color" : "77 122 191"
+	sky_horizon_color(color255) : "Horizon color" : "184 204 224"
+	ground_color(color255) : "Ground color" : "51 54 59" : "The sky below the horizon."
+	ambient_energy(float) : "Ambient light" : "1" : "How much the sky lights surfaces the sun misses."
+	fog_density(float) : "Fog density" : "0" : "0 turns fog off; around 0.002 gives a light haze."
+	fog_color(color255) : "Fog color" : "184 204 224"
+]
 
 @PointClass base(Targetname) studio() color(255 255 255) = prop_static : "A glTF model from the project, instanced as its scene in Godot."
 [
@@ -97,8 +140,8 @@
 
 @AutoVisGroup = "Zones"
 [
-	"Timing" [ "zone_start" "zone_finish" "zone_split" "zone_checkpoint" ]
+	"Timing" [ "zone_start" "zone_finish" "zone_split" ]
 	"Teleports" [ "teleport_zone" "zone_point_tp" "teleport_destination" ]
 	"Hazards" [ "kill_box" "zone_respawn" ]
-	"Movement" [ "zone_booster" "bhop_zone" ]
+	"Movement" [ "zone_booster" "zone_checkpoint" "bhop_zone" ]
 ]

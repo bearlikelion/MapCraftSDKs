@@ -11,6 +11,10 @@ map_size = [-4096, 4096]
 
 [textures]
 default = "64_grey_1"
+# Quake draws its textures without smoothing.
+pixelated = true
+# Sky textures hold a far and a near layer that Quake projects from the view direction.
+sky = ["sky"]
 
 # The plugin reads WADs from both folders and the palette from id1/pak0.pak, never writing to either.
 [files]
