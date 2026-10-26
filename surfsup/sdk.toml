@@ -10,6 +10,11 @@ extensions = ["png", "jpg", "jpeg"]
 default = "ramps-orange1"
 scale = 1.0
 
+# Props: model paths are relative to the project, as Godot's res:// paths are.
+[models]
+roots = ["${project}"]
+class = "prop_static"
+
 # Imported Source maps read their stock textures from the game's packages; CS:S uses HL2's too.
 [files]
 roots = ["${cstrike}", "${cstrike}/../hl2"]
