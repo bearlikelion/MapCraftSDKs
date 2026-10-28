@@ -1,6 +1,6 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "3"
+version = "4"
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
 

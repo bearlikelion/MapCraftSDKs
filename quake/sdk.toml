@@ -1,6 +1,6 @@
 id = "quake"
 name = "Quake"
-version = "1"
+version = "2"
 description = "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles."
 plugins = ["quake"]
 # Quake units are close enough to inches, MapCraft's own unit.
@@ -16,9 +16,10 @@ pixelated = true
 # Sky textures hold a far and a near layer that Quake projects from the view direction.
 sky = ["sky"]
 
-# The plugin reads WADs from both folders and the palette from id1/pak0.pak, never writing to either.
+# The plugin reads WADs from both folders and the palette from id1/pak0.pak, never writing to either,
+# and the Lit view's bake from the editor's bake folder.
 [files]
-roots = ["${wads}", "${quake}"]
+roots = ["${bake_dir}", "${wads}", "${quake}"]
 
 [paths.quake]
 prompt = "Quake folder (the one holding id1)"
@@ -40,8 +41,9 @@ steps = [
     { export = "map", to = "${map_dir}/build/${map_name}.map" },
     { run = "${ericw}/qbsp", args = ["-wadpath", "${wads}", "${map_dir}/build/${map_name}.map"], cwd = "${map_dir}/build" },
     { run = "${ericw}/vis", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
-    { run = "${ericw}/light", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/light", args = ["-lit", "-bspxlit", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${quake}/id1/maps/${map_name}.bsp" },
+    { copy = "${map_dir}/build/${map_name}.lit", to = "${quake}/id1/maps/${map_name}.lit" },
 ]
 
 [[compile]]
@@ -50,7 +52,18 @@ steps = [
     { export = "map", to = "${map_dir}/build/${map_name}.map" },
     { run = "${ericw}/qbsp", args = ["-wadpath", "${wads}", "${map_dir}/build/${map_name}.map"], cwd = "${map_dir}/build" },
     { run = "${ericw}/vis", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
-    { run = "${ericw}/light", args = ["${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${ericw}/light", args = ["-lit", "-bspxlit", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${quake}/id1/maps/${map_name}.bsp" },
+    { copy = "${map_dir}/build/${map_name}.lit", to = "${quake}/id1/maps/${map_name}.lit" },
     { run = "${engine}", args = ["-basedir", "${quake}", "+map", "${map_name}"], cwd = "${quake}" },
+]
+
+# What the Lit view shows: the same qbsp and light as the compiles, without vis, which light does not need.
+[[compile]]
+name = "Bake lighting"
+bake = "${map_name}.bsp"
+steps = [
+    { export = "map", to = "${map_dir}/${map_name}.map" },
+    { run = "${ericw}/qbsp", args = ["-wadpath", "${wads}", "${map_dir}/${map_name}.map"], cwd = "${map_dir}" },
+    { run = "${ericw}/light", args = ["-lit", "-bspxlit", "${map_dir}/${map_name}.bsp"], cwd = "${map_dir}" },
 ]

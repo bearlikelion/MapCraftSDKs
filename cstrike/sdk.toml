@@ -1,6 +1,6 @@
 id = "cstrike"
 name = "Counter-Strike: Source"
-version = "1"
+version = "2"
 description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles."
 plugins = ["source", "source-bsp"]
 # The game's own entity definitions, read from the install beside the cstrike folder.

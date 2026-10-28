@@ -12,6 +12,30 @@
 	]
 	sounds(integer) : "CD track" : 0
 	wad(string) : "Texture WADs" : : "WAD files the compiler reads textures from, separated by semicolons."
+	_sunlight(integer) : "Sun brightness" : 0 : "Light the sky casts along the sun direction; 0 is no sun. Read by the light compiler."
+	_sun_mangle(string) : "Sun direction" : "0 -90 0" : "Yaw and pitch the sunlight travels along; a pitch of -90 shines straight down."
+	_sunlight_color(color255) : "Sun color" : "255 255 255"
+	_sunlight_penumbra(float) : "Sun softness" : "0" : "Degrees the sun's shadow edges blur across; 3 or 4 is gentle, 10 and up diffuse."
+	_sunlight2(integer) : "Sky fill" : 0 : "Light from the whole sky dome, which brightens what the sun leaves in shadow."
+	_sunlight2_color(color255) : "Sky fill color" : "255 255 255"
+	_sunlight3(integer) : "Ground fill" : 0 : "Like sky fill, from the lower half of the dome."
+	_dirt(choices) : "Ambient occlusion" : 0 : "Darkens corners and creases for every light." =
+	[
+		0 : "Off"
+		1 : "On"
+	]
+	_dirtscale(float) : "Occlusion strength" : "1"
+	_dirtdepth(float) : "Occlusion reach" : "128" : "How far, in units, occlusion looks for nearby surfaces."
+	_bounce(choices) : "Bounced light" : 0 : "Lets light reflect once off lit surfaces, tinted by their textures." =
+	[
+		0 : "Off"
+		1 : "On"
+	]
+	_bouncescale(float) : "Bounce strength" : "1"
+	_minlight(integer) : "Minimum light" : 0 : "The darkest any surface gets."
+	_minlight_color(color255) : "Minimum light color" : "255 255 255"
+	_anglescale(float) : "Angle falloff" : "0.5" : "How much light dims on surfaces it strikes at a slant, from 0 to 1."
+	_gamma(float) : "Light gamma" : "1" : "Above 1 brightens the dark parts of every lightmap, below 1 darkens them."
 ]
 
 // Base classes. A class's own spawnflags replace those it inherits, so classes with flags of their own repeat the difficulty flags.

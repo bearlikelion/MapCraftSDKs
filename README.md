@@ -68,7 +68,7 @@ Paste the printed entry into the `sdks` list:
   "download": "https://github.com/you/my-game/releases/download/v1.0.0/my-game-1.0.0.zip",
   "sha256": "64 hex digits printed by sdk package",
   "size": 4096,
-  "min_mapcraft": "0.1.0",
+  "min_mapcraft": "0.2.0",
   "plugins": []
 }
 ```
