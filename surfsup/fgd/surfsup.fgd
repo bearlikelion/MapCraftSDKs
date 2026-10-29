@@ -107,12 +107,12 @@
 	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
 ]
 
-@PointClass size(-64 -64 0, 64 64 16) color(0 255 0) = starting_platform : "SurfsUp's starting platform, with its own start zone."
+@PointClass size(-64 -64 0, 64 64 16) color(0 255 0) studio("starting_platform.glb") = starting_platform : "SurfsUp's starting platform, with its own start zone."
 [
 	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
 ]
 
-@PointClass size(-64 -64 0, 64 64 16) color(255 0 0) = finish_line : "SurfsUp's landing platform, with its own finish zone."
+@PointClass size(-64 -64 0, 64 64 16) color(255 0 0) studio("finish_line.glb") = finish_line : "SurfsUp's landing platform, with its own finish zone."
 [
 	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
 ]
