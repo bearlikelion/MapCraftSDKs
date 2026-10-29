@@ -12,6 +12,7 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
      The plugin reads Quake's palette from `id1/pak0.pak` (`gfx/palette.lmp`), or from a loose `id1/gfx/palette.lmp`.
    - **WAD folder**: where your texture WADs live.
      WADs anywhere under the Quake folder are found too.
+   - **Texture folders** (below the paths): more folders of WADs, or single WAD files from anywhere, such as a jam's WAD; click **File** to pick one.
    - **ericw-tools folder**: the folder holding `qbsp`, `vis` and `light`.
    - **Quake engine**: the engine to play in, such as ironwail or Quakespasm.
 3. Put some WADs in the WAD folder.
@@ -46,6 +47,8 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
   - Texture names are lowercase, as Quake ignores case; `*`, `+` and `{` prefixes are kept.
   - Skies keep both layers; in the views they show as Quake's scrolling sky does, projected from the view direction with the near clouds over the far ones (not moving). `{` textures show palette index 255 as clear.
   - The material browser lists every texture in the readable WADs, shrunk when the WADs are big; the textures a map uses are read full size.
+  - Each WAD is its own folder in the Materials panel, named after the WAD file, so **Folders** shows or hides a whole WAD and searching a WAD's name finds its textures.
+    A texture in more than one WAD shows once, in the folder of the WAD its picture comes from.
 
 - **Models**: monsters, weapons, items, keys, torches and explosive boxes show their Quake models in the views, read from the Quake folder's PAK files (or loose `progs` and `maps` files).
   - `.mdl` models show their first frame and first skin; `.bsp` brush models, such as the health and ammo boxes, show with their own textures.
@@ -55,7 +58,7 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
 ## What doesn't work yet
 
 - **TrenchBroom layer settings** such as "omit from export", hiding, locking and sort order are not kept; layers become plain groups.
-- Quake 3 brush primitives and patches, Quake 2 surface flags, textures inside BSP files, and WADs next to the map but outside the SDK's folders.
+- Quake 3 brush primitives and patches, Quake 2 surface flags, textures inside BSP files, and WADs a map's `wad` key names outside the SDK's folders and the Texture folders list (add those under Texture folders).
 - Displaced faces are written flat, with a warning in the Output panel, and entity connections are not exported, since Quake has neither.
 
 ## Attribution
