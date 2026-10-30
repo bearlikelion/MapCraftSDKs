@@ -2,19 +2,41 @@
 
 This repository is the official registry of SDKs for [MapCraft](https://github.com/bearlikelion/MapCraft), the open-source level editor.
 An SDK teaches MapCraft one game: its entities, where its materials live, which plugins to load and how to compile and launch a map.
-MapCraft's SDK Manager (File > SDK Manager…) reads `index.json` from here, so anything listed in it can be installed with one click.
+MapCraft ships without SDKs: a fresh install shows the ones listed in this repository's `index.json` as cards to pick from, and installs them on demand.
+MapCraft's SDK Manager (File > SDK Manager…) reads the same `index.json`, so anything listed in it can be installed or updated with one click.
 
 ## What is here
 
 - `index.json`: the registry MapCraft reads, at `https://raw.githubusercontent.com/bearlikelion/MapCraftSDKs/main/index.json`.
 - `templates/basic/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
 - `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/` and `cstrike/`; an SDK can also live in its own repository and only add an entry to `index.json`.
+- `.github/workflows/check.yml`: the checks every pull request runs.
+- `.github/workflows/release.yml`: publishes the SDKs here to GitHub Releases and keeps `index.json` current.
 
 This repository is also MapCraft's `sdks/` folder, as a git submodule, which is why SDK folders sit at the top level.
-MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/` and `cstrike/plugins/` with `cargo xtask plugins`; those builds are not committed.
-- `.github/workflows/check.yml`: the checks every pull request runs.
+MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/` and `cstrike/plugins/` with `cargo xtask plugins`; those builds are not committed, and the release workflow builds them the same way into each zip.
+
+## How the SDKs here are released
+
+The release workflow runs when a push to `main` changes an SDK folder, and by hand from the Actions tab.
+It builds `mapcraft-cli` and the first-party plugins from MapCraft's `main`, then handles each top-level SDK folder in turn.
+An SDK whose release `<id>-<version>` (such as `surfsup-5`) already exists is skipped.
+Any other SDK is checked, packaged, published as the release `<id>-<version>` with its zip, and its entry in `index.json` is replaced.
+The workflow then commits `index.json` back to `main`.
+
+So to release a new version, bump `version` in its `sdk.toml` and merge; never edit the entries of SDKs in this repository by hand.
+Changes merged without a version bump are not published, because that version's release already exists.
+If a run fails after creating a release, delete that release and its tag, then run the workflow again.
+
+### Logos
+
+An SDK folder may hold a `logo.png` or `logo.jpg`, shown on the SDK's card in MapCraft; a wide picture such as a 460x215 Steam header fits best.
+The release workflow adds it to the entry as `"logo": "<id>/logo.jpg"`, a path relative to `index.json`.
+The Quake and Counter-Strike: Source logos are trademarks of id Software and Valve, used only to name the games those SDKs are for.
 
 ## Publishing an SDK
+
+SDKs whose source lives in this repository only need steps 1, 2 and 5; the release workflow does steps 3 and 4.
 
 ### 1. Lay out the folder
 
@@ -24,6 +46,7 @@ my-game/
   fgd/              entity definitions
   plugins/<id>.wasm WebAssembly plugins the manifest lists, if any
   samples/*.mcmap   at least one small map that shows the SDK working
+  logo.png          optional picture for the SDK's card (or logo.jpg)
   README.md         what the SDK is for and how to set it up
 ```
 
@@ -69,16 +92,20 @@ Paste the printed entry into the `sdks` list:
   "sha256": "64 hex digits printed by sdk package",
   "size": 4096,
   "min_mapcraft": "0.2.0",
-  "plugins": []
+  "plugins": [],
+  "logo": "https://raw.githubusercontent.com/you/my-game/main/logo.png"
 }
 ```
+
+`logo` is optional: a PNG or JPEG, as a URL or a path relative to `index.json`.
 
 To publish an update, bump `version` in `sdk.toml`, package again, upload the new zip and replace the entry.
 MapCraft offers Update when the registry's version is newer than the installed one, and an updated SDK asks again before its compile profiles run a program.
 
 ### 5. Open a pull request
 
-Put the SDK folder in `<id>/` at the top level if its source should live here, and change `index.json` in the same pull request.
+If its source should live here, put the SDK folder in `<id>/` at the top level and leave `index.json` alone; once merged, the release workflow publishes it.
+Otherwise add your entry to `index.json` in the pull request.
 
 ## Review checks
 

@@ -6,7 +6,8 @@ The game's materials, its entity definitions (`bin/cstrike.fgd`) and its compile
 
 ## Setup
 
-1. Build the plugins with `cargo xtask plugins`, which copies `source.wasm` and `source-bsp.wasm` into `sdks/cstrike/plugins`.
+1. Install the SDK from File > SDK Manager…, which brings its plugins.
+   In a MapCraft source checkout, `cargo xtask plugins` builds `source.wasm` and `source-bsp.wasm` into `sdks/cstrike/plugins` instead.
 2. Set **Counter-Strike: Source game folder** in File > SDK Settings to the game's `cstrike` folder.
    The Windows version of the game is needed for `bin/cstrike.fgd` and the compilers; on Linux, the compilers run through Wine.
 
@@ -16,4 +17,5 @@ The [Counter-Strike: Source guide](https://github.com/bearlikelion/MapCraft/blob
 
 - Counter-Strike: Source, its packages, materials, entity definitions and compilers belong to Valve.
   This SDK includes none of them; the plugins read them from your own install when they run.
+- `logo.jpg` is Counter-Strike: Source's Steam store header; the Counter-Strike: Source logo is a trademark of Valve, used only to name the game this SDK is for.
 - The VMF reader and writer are written for MapCraft from the format's public description and from observing files.

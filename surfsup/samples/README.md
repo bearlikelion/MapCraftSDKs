@@ -21,4 +21,4 @@ Curves keep each piece under 5 degrees of turn, and the broken ramp is three lon
 Splits are thin walls across each gap: SurfsUp blocks the finish until a run has crossed all of them, which stops shortcuts.
 
 Open either map with File > Open, then set the SurfsUp project folder in File > SDK Settings so the materials load.
-To play one, put the MapCraft Godot addon in the SurfsUp project, set the project folder and Godot editor in SDK Settings, and use Run > Play in SurfsUp project.
+To play one, set the SurfsUp game executable in SDK Settings and use Run > Play in SurfsUp, which copies the map into the Maps folder next to the game.

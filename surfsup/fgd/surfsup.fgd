@@ -100,7 +100,7 @@
 
 @SolidClass color(128 128 200) = func_illusionary : "Geometry players see but pass through." []
 
-@PointClass size(-16 -16 0, 16 16 72) color(0 255 0) = info_player_start : "Where the player spawns." []
+@PointClass size(-16 -16 0, 16 16 72) color(0 255 0) studio("y_bot.glb") = info_player_start : "Where the player spawns." []
 
 @PointClass base(Targetname) size(-8 -8 -8, 8 8 8) color(200 0 255) = teleport_destination : "Where teleports send the player."
 [

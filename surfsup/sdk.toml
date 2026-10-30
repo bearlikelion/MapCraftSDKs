@@ -1,16 +1,18 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "4"
+version = "5"
+description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
 
+# `textures` holds editor copies of the game's Materials, so they show without the project; the game uses its own.
 [textures]
-roots = ["${project}/Assets/Textures"]
+roots = ["${project}/Assets/Textures", "textures"]
 extensions = ["png", "jpg", "jpeg"]
 default = "ramps-orange1"
 scale = 1.0
 
-# Props: model paths are relative to the project, as Godot's res:// paths are; `models` holds the platforms' editor models.
+# Props: model paths are relative to the project, as Godot's res:// paths are; `models` holds the editor models of the platforms and the player start.
 [models]
 roots = ["${project}", "models"]
 class = "prop_static"
@@ -22,32 +24,17 @@ roots = ["${cstrike}", "${cstrike}/../hl2"]
 [paths.project]
 prompt = "SurfsUp Godot project folder"
 
-[paths.godot]
-prompt = "Godot editor executable"
-kind = "file"
-
 [paths.game]
 prompt = "SurfsUp game executable"
 kind = "file"
 
-[paths.maps]
-prompt = "Folder SurfsUp loads maps from (Maps next to the game)"
-
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder), for textures of imported BSP maps"
 
-# SurfsUp loads .mcmap files straight from its Maps folder, through the MapCraft Godot addon
-# (godot/addons/mapcraft), which the project or game must include.
-[[compile]]
-name = "Play in SurfsUp project"
-steps = [
-    { copy = "${map}", to = "${project}/Maps/${map_name}.mcmap" },
-    { run = "${godot}", args = ["--path", "${project}", "+map", "${map_name}"] },
-]
-
+# SurfsUp loads .mcmap files straight from the Maps folder next to its executable, which the copy creates when missing.
 [[compile]]
 name = "Play in SurfsUp"
 steps = [
-    { copy = "${map}", to = "${maps}/${map_name}.mcmap" },
+    { copy = "${map}", to = "${game_dir}/Maps/${map_name}.mcmap" },
     { run = "${game}", args = ["+map", "${map_name}"] },
 ]

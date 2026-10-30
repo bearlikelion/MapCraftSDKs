@@ -1,0 +1,79 @@
+name: Release SDKs
+
+on:
+  push:
+    branches: [main]
+    paths: ['*/**', '!templates/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One run at a time, so two runs never race to commit index.json.
+concurrency: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out MapCraft
+        uses: actions/checkout@v4
+        with:
+          repository: bearlikelion/MapCraft
+          path: mapcraft
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip2
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            mapcraft
+            mapcraft/plugins
+
+      - name: Build mapcraft-cli
+        run: cargo build --release -p mapcraft-cli --manifest-path mapcraft/Cargo.toml
+
+      - name: Build the first-party plugins into these SDKs
+        run: |
+          rm -rf mapcraft/sdks
+          ln -s "$GITHUB_WORKSPACE" mapcraft/sdks
+          cd mapcraft && cargo xtask plugins
+
+      - name: Release new SDK versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cli=mapcraft/target/release/mapcraft-cli
+          for dir in */; do
+            dir=${dir%/}
+            [ -f "$dir/sdk.toml" ] || continue
+            read -r id version < <(python3 -c 'import sys, tomllib; m = tomllib.load(open(sys.argv[1], "rb")); print(m["id"], m["version"])' "$dir/sdk.toml")
+            tag="$id-$version"
+            if gh release view "$tag" > /dev/null 2>&1; then
+              echo "$tag is already released"
+              continue
+            fi
+            "$cli" sdk check "$dir"
+            entry=$("$cli" sdk package "$dir" --out dist --url "https://github.com/$GITHUB_REPOSITORY/releases/download/$tag/")
+            # Logos are served from this repository, relative to index.json.
+            for logo in "$dir/logo.png" "$dir/logo.jpg"; do
+              if [ -f "$logo" ]; then entry=$(jq --arg logo "$logo" '.logo = $logo' <<< "$entry"); fi
+            done
+            gh release create "$tag" "dist/$tag.zip" --target "$GITHUB_SHA" --title "$(jq -r '.name + " " + .version' <<< "$entry")" --notes ""
+            jq --argjson e "$entry" '.sdks = ([.sdks[] | select(.id != $e.id)] + [$e] | sort_by(.id))' index.json > index.new
+            mv index.new index.json
+          done
+
+      # Pushes made with the workflow token start no workflows, so this commit cannot trigger another release.
+      - name: Commit index.json
+        run: |
+          git diff --quiet index.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898273+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update index.json" index.json
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

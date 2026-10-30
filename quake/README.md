@@ -6,7 +6,8 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
 
 ## Setup
 
-1. Build the plugin with `cargo xtask plugins`, which copies `quake.wasm` into `sdks/quake/plugins`.
+1. Install the SDK from File > SDK Manager…, which brings its plugin.
+   In a MapCraft source checkout, `cargo xtask plugins` builds `quake.wasm` into `sdks/quake/plugins` instead.
 2. Open the SDK in MapCraft and set its folders:
    - **Quake folder**: the folder holding `id1`.
      The plugin reads Quake's palette from `id1/pak0.pak` (`gfx/palette.lmp`), or from a loose `id1/gfx/palette.lmp`.
@@ -65,6 +66,7 @@ Quake itself, its PAK files and its palette stay in your own install and are nev
 
 - Quake, its PAK files and its palette belong to id Software.
   This SDK includes none of them; the plugin reads the palette from your own copy when it runs.
+- `logo.jpg` is Quake's Steam store header; the Quake logo is a trademark of id Software, used only to name the game this SDK is for.
 - `fgd/quake.fgd` is written for MapCraft.
   Entity names, keys and flag bits follow Quake's game code, as any definition file for the game must; the descriptions are original.
 - ericw-tools (GPL) is a separate program you install yourself; the compile profiles only run it.
