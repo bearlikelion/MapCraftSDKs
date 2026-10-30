@@ -3,8 +3,8 @@ name = "Counter-Strike: Source"
 version = "3"
 description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles, native on Linux."
 plugins = ["source", "source-bsp"]
-# The game's own entity definitions; only the Windows version of the game ships them.
-fgd = ["${fgd}"]
+# Valve's entity definitions from the game's Windows version, which the Linux version lacks.
+fgd = ["fgd/cstrike.fgd"]
 # Source's coordinate limit; vbsp leaks or fails past it.
 map_size = [-16384, 16384]
 
@@ -22,11 +22,6 @@ class = "prop_static"
 
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder)"
-
-[paths.fgd]
-prompt = "cstrike.fgd, in the bin folder of the game's Windows version"
-kind = "file"
-default = "${cstrike}/../bin/cstrike.fgd"
 
 # Linux runs vbsp, vvis and vrad built for Linux from the Source SDK and placed in the game's bin/linux64 beside the libraries they load.
 # The .vmf goes in a build folder beside the map, so a mapper's own .vmf of the same name is never overwritten.
