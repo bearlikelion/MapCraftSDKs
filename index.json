@@ -2,5 +2,60 @@
   "format": "mapcraft.sdk-registry",
   "version": 1,
   "name": "MapCraft SDKs",
-  "sdks": []
+  "sdks": [
+    {
+      "id": "cstrike",
+      "name": "Counter-Strike: Source",
+      "version": "2",
+      "description": "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles.",
+      "author": "",
+      "license": "",
+      "homepage": "",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/cstrike-2/cstrike-2.zip",
+      "sha256": "38ccb5b9907e5813e426a565471edcf85cef926bb9f73d272a07a114503988dd",
+      "size": 245223,
+      "min_mapcraft": "0.2.0",
+      "plugins": [
+        "source",
+        "source-bsp"
+      ],
+      "logo": "cstrike/logo.jpg"
+    },
+    {
+      "id": "quake",
+      "name": "Quake",
+      "version": "2",
+      "description": "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles.",
+      "author": "",
+      "license": "",
+      "homepage": "",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/quake-2/quake-2.zip",
+      "sha256": "814a057324e825421a19fdff54cb498f62a0860d59cf1f0fd58f0c053865d62a",
+      "size": 164830,
+      "min_mapcraft": "0.2.0",
+      "plugins": [
+        "quake"
+      ],
+      "logo": "quake/logo.jpg"
+    },
+    {
+      "id": "surfsup",
+      "name": "SurfsUp",
+      "version": "5",
+      "description": "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp.",
+      "author": "",
+      "license": "",
+      "homepage": "",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/surfsup-5/surfsup-5.zip",
+      "sha256": "ecdddb04ae2ccf235b07547b0f4c4744ddb850c7c39b5d1f9102c313e346a601",
+      "size": 80885500,
+      "min_mapcraft": "0.2.0",
+      "plugins": [
+        "godot",
+        "source-bsp",
+        "surfsup"
+      ],
+      "logo": "surfsup/logo.jpg"
+    }
+  ]
 }
