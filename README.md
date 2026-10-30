@@ -117,9 +117,10 @@ The workflow runs on every pull request:
 
 A maintainer then reviews what a machine cannot:
 
-- The license is open (MIT, Apache-2.0, BSD, CC0, CC BY, CC BY-SA, MPL-2.0 or similar) and covers everything in the zip.
-- No game's own assets, textures, models, sounds or FGD text are included unless their license allows it; SDKs point at the user's game install instead.
+- The license is open (MIT, Apache-2.0, BSD, CC0, CC BY, CC BY-SA, MPL-2.0 or similar) and covers everything in the zip but a game FGD shipped under the exception below.
+- No game's own assets, textures, models or sounds are included unless their license allows it; SDKs point at the user's game install instead.
 - Entity definitions are written for the SDK, not copied from Valve, id Software or TrenchBroom files.
+  The exception is a game's own FGD that some versions of the game do not ship, copied unchanged and credited in the SDK's README, such as Counter-Strike: Source's `cstrike.fgd` and `base.fgd`, which its Linux version lacks.
 - Plugins come with public source that builds them.
 - Compile profiles only run the game's own tools or well-known compilers, never downloads or scripts fetched at run time.
 - The homepage works and says how to report problems.
