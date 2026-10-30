@@ -1,6 +1,6 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "6"
+version = "7"
 description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
@@ -26,14 +26,21 @@ roots = ["${cstrike}", "${cstrike}/../hl2"]
 [paths.game]
 prompt = "SurfsUp game executable"
 kind = "file"
+steam = { app = 3454830, find = ["SurfsUp.x86_64", "SurfsUp.exe"] }
 
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder), for textures of imported BSP maps"
+steam = { app = 240, find = ["cstrike"] }
 
 # SurfsUp loads .mcmap files straight from the Maps folder next to its executable, which the copy creates when missing.
+# Started from Steam, the editor carries its own app id, which the game must not inherit.
 [[compile]]
 name = "Play in SurfsUp"
 steps = [
     { copy = "${map}", to = "${game_dir}/Maps/${map_name}.mcmap" },
-    { run = "${game}", args = ["+map", "${map_name}"] },
+    { run = "${game}", args = ["+map", "${map_name}"], env = { SteamAppId = "3454830", SteamGameId = "3454830" } },
 ]
+
+[workshop]
+app = 3454830
+tags = ["Map", "Surf", "Bhop", "Jump", "Climb"]
