@@ -1,28 +1,27 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "5"
+version = "6"
 description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
+# Zones are untextured and show their class color; SurfsUp never draws them.
+triggers = ["zone_*", "teleport_zone", "bhop_zone", "kill_box"]
 
-# `textures` holds editor copies of the game's Materials, so they show without the project; the game uses its own.
+# `textures` holds editor copies of the game's Materials; the game uses its own.
 [textures]
-roots = ["${project}/Assets/Textures", "textures"]
+roots = ["textures"]
 extensions = ["png", "jpg", "jpeg"]
 default = "ramps-orange1"
 scale = 1.0
 
-# Props: model paths are relative to the project, as Godot's res:// paths are; `models` holds the editor models of the platforms and the player start.
+# `models` holds the editor models of the platforms and the player start.
 [models]
-roots = ["${project}", "models"]
+roots = ["models"]
 class = "prop_static"
 
 # Imported Source maps read their stock textures from the game's packages; CS:S uses HL2's too.
 [files]
 roots = ["${cstrike}", "${cstrike}/../hl2"]
-
-[paths.project]
-prompt = "SurfsUp Godot project folder"
 
 [paths.game]
 prompt = "SurfsUp game executable"

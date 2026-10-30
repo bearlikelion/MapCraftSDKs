@@ -1,6 +1,6 @@
 id = "quake"
 name = "Quake"
-version = "2"
+version = "3"
 description = "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles."
 plugins = ["quake"]
 # Quake units are close enough to inches, MapCraft's own unit.
@@ -15,6 +15,8 @@ default = "64_grey_1"
 pixelated = true
 # Sky textures hold a far and a near layer that Quake projects from the view direction.
 sky = ["sky"]
+# What qbsp gets on trigger faces left untextured.
+trigger = "trigger"
 
 # The plugin reads WADs from both folders and the palette from id1/pak0.pak, never writing to either,
 # and the Lit view's bake from the editor's bake folder.

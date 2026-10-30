@@ -1,31 +1,135 @@
 id = "cstrike"
 name = "Counter-Strike: Source"
-version = "2"
-description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles."
+version = "4"
+description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles, native on Linux."
 plugins = ["source", "source-bsp"]
-# The game's own entity definitions, read from the install beside the cstrike folder.
-fgd = ["${cstrike}/../bin/cstrike.fgd"]
+# Valve's entity definitions from the game's Windows version, which the Linux version lacks.
+fgd = ["fgd/cstrike.fgd"]
+# Brush volumes the game watches: their brushes lose their materials and export with tools/toolstrigger.
+triggers = ["trigger*", "func_buyzone", "func_bomb_target", "func_hostage_rescue"]
 # Source's coordinate limit; vbsp leaks or fails past it.
 map_size = [-16384, 16384]
 
 [textures]
 default = "dev/dev_measuregeneric01b"
 scale = 0.25
+trigger = "tools/toolstrigger"
 
 # The plugins read materials from the game's packages; CS:S uses HL2's too.
 [files]
 roots = ["${cstrike}", "${cstrike}/../hl2"]
 
+# The Models tab places the game's models, from its packages, as static props.
+[models]
+class = "prop_static"
+
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder)"
 
+# Linux runs vbsp, vvis and vrad built for Linux from the Source SDK and placed in the game's bin/linux64 beside the libraries they load.
 # The .vmf goes in a build folder beside the map, so a mapper's own .vmf of the same name is never overwritten.
+
 [[compile]]
-name = "Compile"
+name = "Fast"
+os = "linux"
 steps = [
     { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
-    { run = "${cstrike}/../bin/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], wine = true, cwd = "${map_dir}/build" },
-    { run = "${cstrike}/../bin/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
-    { run = "${cstrike}/../bin/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vvis", args = ["-fast", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vrad", args = ["-fast", "-bounce", "2", "-noextra", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Compile"
+os = "linux"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vrad", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Final"
+os = "linux"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vrad", args = ["-both", "-final", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Build and play"
+os = "linux"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { run = "${cstrike}/../bin/linux64/vrad", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+    { run = "steam", args = ["-applaunch", "240", "-novid", "-console", "+map", "${map_name}"] },
+]
+
+# Windows runs the game's own compilers.
+
+[[compile]]
+name = "Fast"
+os = "windows"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-fast", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-fast", "-bounce", "2", "-noextra", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Compile"
+os = "windows"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Final"
+os = "windows"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-both", "-final", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+]
+
+[[compile]]
+name = "Build and play"
+os = "windows"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
+    { run = "${cstrike}/../cstrike_win64.exe", args = ["-game", "cstrike", "-hijack", "-novid", "-console", "+map", "${map_name}"], cwd = "${cstrike}/.." },
+]
+
+# The Windows version of the game on Linux, with its compilers run through Wine.
+
+[[compile]]
+name = "Compile with Wine"
+os = "linux"
+steps = [
+    { export = "vmf", to = "${map_dir}/build/${map_name}.vmf" },
+    { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], wine = true, cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
+    { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
