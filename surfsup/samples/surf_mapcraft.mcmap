@@ -40,7 +40,7 @@
                   "tip": 64,
                   "thickness": 64,
                   "surf_material": "ramps-orange1",
-                  "side_material": "MetalWalkway011/MetalWalkway011",
+                  "side_material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                   "bottom_material": ""
                 },
                 "origin": [-128, 0, 1152],
@@ -68,7 +68,7 @@
                     {
                       "id": 14,
                       "points": [[-3200, -384, 1152], [-3200, 384, 1216], [-3200, 0, 1696]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 1152, "scale": 1},
                       "rotation": 0,
@@ -83,7 +83,7 @@
                     {
                       "id": 15,
                       "points": [[-128, 384, 1152], [-128, 384, 1216], [-3200, 384, 1216]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 128, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 1152, "scale": 1},
                       "rotation": 0,
@@ -97,7 +97,7 @@
                     {
                       "id": 16,
                       "points": [[-128, 384, 1152], [-128, -384, 1152], [-128, 384, 1216]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 1152, "scale": 1},
                       "rotation": 0,
@@ -112,7 +112,7 @@
                     {
                       "id": 17,
                       "points": [[-128, 384, 1152], [-3200, -384, 1152], [-128, -384, 1152]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 128, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -126,7 +126,7 @@
                     {
                       "id": 18,
                       "points": [[-128, -384, 1216], [-128, -384, 1152], [-3200, -384, 1152]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 128, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 1152, "scale": 1},
                       "rotation": 0,
@@ -177,7 +177,7 @@
                   "tip": 64,
                   "thickness": 64,
                   "surf_material": "ramps-orange1",
-                  "side_material": "MetalWalkway011/MetalWalkway011",
+                  "side_material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                   "bottom_material": ""
                 },
                 "origin": [-3456, 0, 768],
@@ -205,7 +205,7 @@
                     {
                       "id": 21,
                       "points": [[-6528, -384, 768], [-6528, 384, 832], [-6528, 0, 1312]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 768, "scale": 1},
                       "rotation": 0,
@@ -220,7 +220,7 @@
                     {
                       "id": 22,
                       "points": [[-3456, 384, 768], [-3456, 384, 832], [-6528, 384, 832]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 3456, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 768, "scale": 1},
                       "rotation": 0,
@@ -234,7 +234,7 @@
                     {
                       "id": 23,
                       "points": [[-3456, 384, 768], [-3456, -384, 768], [-3456, 384, 832]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 768, "scale": 1},
                       "rotation": 0,
@@ -249,7 +249,7 @@
                     {
                       "id": 24,
                       "points": [[-3456, 384, 768], [-6528, -384, 768], [-3456, -384, 768]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 3456, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -263,7 +263,7 @@
                     {
                       "id": 25,
                       "points": [[-3456, -384, 832], [-3456, -384, 768], [-6528, -384, 768]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 3456, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 768, "scale": 1},
                       "rotation": 0,
@@ -314,7 +314,7 @@
                   "tip": 64,
                   "thickness": 64,
                   "surf_material": "ramps-orange1",
-                  "side_material": "MetalWalkway011/MetalWalkway011",
+                  "side_material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                   "bottom_material": ""
                 },
                 "origin": [-6784, 0, 384],
@@ -328,7 +328,7 @@
                     {
                       "id": 27,
                       "points": [[-6784, 0, 928], [-6784, 384, 384], [-6784, -384, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -343,7 +343,7 @@
                     {
                       "id": 28,
                       "points": [[-6947.100521508389, -392.0126148174643, 384], [-6784, -384, 384], [-6784, 384, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -357,7 +357,7 @@
                     {
                       "id": 29,
                       "points": [[-7022.377685281492, 372.2892552667829, 384], [-6784, 384, 384], [-7022.377685281492, 372.2892552667829, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -371,7 +371,7 @@
                     {
                       "id": 30,
                       "points": [[-7022.377685281492, 372.2892552667829, 384], [-7022.377685281492, 372.2892552667829, 448], [-6947.100521508389, -392.0126148174643, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -400,7 +400,7 @@
                     {
                       "id": 32,
                       "points": [[-6784, -384, 448], [-6784, -384, 384], [-6947.100521508389, -392.0126148174643, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -434,7 +434,7 @@
                     {
                       "id": 34,
                       "points": [[-6984.73910339494, -9.86167977534069, 928], [-7022.377685281492, 372.2892552667829, 384], [-6947.100521508389, -392.0126148174643, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -449,7 +449,7 @@
                     {
                       "id": 35,
                       "points": [[-7108.630295834837, -415.97329340902456, 384], [-6947.100521508389, -392.0126148174643, 384], [-7022.377685281492, 372.2892552667829, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -463,7 +463,7 @@
                     {
                       "id": 36,
                       "points": [[-7258.459663143224, 337.2698019406564, 384], [-7022.377685281492, 372.2892552667829, 384], [-7258.459663143224, 337.2698019406564, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -477,7 +477,7 @@
                     {
                       "id": 37,
                       "points": [[-7258.459663143224, 337.2698019406564, 384], [-7258.459663143224, 337.2698019406564, 448], [-7108.630295834837, -415.97329340902456, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -506,7 +506,7 @@
                     {
                       "id": 39,
                       "points": [[-6947.100521508389, -392.0126148174643, 448], [-6947.100521508389, -392.0126148174643, 384], [-7108.630295834837, -415.97329340902456, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -540,7 +540,7 @@
                     {
                       "id": 41,
                       "points": [[-7183.544979489031, -39.35174573418408, 928], [-7258.459663143224, 337.2698019406564, 384], [-7108.630295834837, -415.97329340902456, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -555,7 +555,7 @@
                     {
                       "id": 42,
                       "points": [[-7267.033702951425, -455.65128134160454, 384], [-7108.630295834837, -415.97329340902456, 384], [-7258.459663143224, 337.2698019406564, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -569,7 +569,7 @@
                     {
                       "id": 43,
                       "points": [[-7489.972335082853, 279.2788965007319, 384], [-7258.459663143224, 337.2698019406564, 384], [-7489.972335082853, 279.2788965007319, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -583,7 +583,7 @@
                     {
                       "id": 44,
                       "points": [[-7489.972335082853, 279.2788965007319, 384], [-7489.972335082853, 279.2788965007319, 448], [-7267.033702951425, -455.65128134160454, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -612,7 +612,7 @@
                     {
                       "id": 46,
                       "points": [[-7108.630295834837, -415.97329340902456, 448], [-7108.630295834837, -415.97329340902456, 384], [-7267.033702951425, -455.65128134160454, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -646,7 +646,7 @@
                     {
                       "id": 48,
                       "points": [[-7378.503019017139, -88.18619242043633, 928], [-7489.972335082853, 279.2788965007319, 384], [-7267.033702951425, -455.65128134160454, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -661,7 +661,7 @@
                     {
                       "id": 49,
                       "points": [[-7420.785231455509, -510.66445790121884, 384], [-7267.033702951425, -455.65128134160454, 384], [-7489.972335082853, 279.2788965007319, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -675,7 +675,7 @@
                     {
                       "id": 50,
                       "points": [[-7714.686107511899, 198.87502306744932, 384], [-7489.972335082853, 279.2788965007319, 384], [-7714.686107511899, 198.87502306744932, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -689,7 +689,7 @@
                     {
                       "id": 51,
                       "points": [[-7714.686107511899, 198.87502306744932, 384], [-7714.686107511899, 198.87502306744932, 448], [-7420.785231455509, -510.66445790121884, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -718,7 +718,7 @@
                     {
                       "id": 53,
                       "points": [[-7267.033702951425, -455.65128134160454, 448], [-7267.033702951425, -455.65128134160454, 384], [-7420.785231455509, -510.66445790121884, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -752,7 +752,7 @@
                     {
                       "id": 55,
                       "points": [[-7567.7356694837035, -155.89471741688476, 928], [-7714.686107511899, 198.87502306744932, 384], [-7420.785231455509, -510.66445790121884, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -767,7 +767,7 @@
                     {
                       "id": 56,
                       "points": [[-7568.40417007846, -580.4830161243372, 384], [-7420.785231455509, -510.66445790121884, 384], [-7714.686107511899, 198.87502306744932, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -781,7 +781,7 @@
                     {
                       "id": 57,
                       "points": [[-7930.4368639608265, 96.8325148951995, 384], [-7714.686107511899, 198.87502306744932, 384], [-7930.4368639608265, 96.8325148951995, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -795,7 +795,7 @@
                     {
                       "id": 58,
                       "points": [[-7930.4368639608265, 96.8325148951995, 384], [-7930.4368639608265, 96.8325148951995, 448], [-7568.40417007846, -580.4830161243372, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -824,7 +824,7 @@
                     {
                       "id": 60,
                       "points": [[-7420.785231455509, -510.66445790121884, 448], [-7420.785231455509, -510.66445790121884, 384], [-7568.40417007846, -580.4830161243372, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -858,7 +858,7 @@
                     {
                       "id": 62,
                       "points": [[-7749.420517019643, -241.82525061456886, 928], [-7930.4368639608265, 96.8325148951995, 384], [-7568.40417007846, -580.4830161243372, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -873,7 +873,7 @@
                     {
                       "id": 63,
                       "points": [[-7708.468867744618, -664.4345651285647, 384], [-7568.40417007846, -580.4830161243372, 384], [-7930.4368639608265, 96.8325148951995, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -887,7 +887,7 @@
                     {
                       "id": 64,
                       "points": [[-8135.146806703673, -25.86590288021, 384], [-7930.4368639608265, 96.8325148951995, 384], [-8135.146806703673, -25.86590288021, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -901,7 +901,7 @@
                     {
                       "id": 65,
                       "points": [[-8135.146806703673, -25.86590288021, 384], [-8135.146806703673, -25.86590288021, 448], [-7708.468867744618, -664.4345651285647, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -930,7 +930,7 @@
                     {
                       "id": 67,
                       "points": [[-7568.40417007846, -580.4830161243372, 448], [-7568.40417007846, -580.4830161243372, 384], [-7708.468867744618, -664.4345651285647, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -964,7 +964,7 @@
                     {
                       "id": 69,
                       "points": [[-7921.807837224145, -345.15023400438736, 928], [-8135.146806703673, -25.86590288021, 384], [-7708.468867744618, -664.4345651285647, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -979,7 +979,7 @@
                     {
                       "id": 70,
                       "points": [[-7839.630424848307, -761.7106056044056, 384], [-7708.468867744618, -664.4345651285647, 384], [-8135.146806703673, -25.86590288021, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -993,7 +993,7 @@
                     {
                       "id": 71,
                       "points": [[-8326.844467085986, -168.03857742182362, 384], [-8135.146806703673, -25.86590288021, 384], [-8326.844467085986, -168.03857742182362, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1007,7 +1007,7 @@
                     {
                       "id": 72,
                       "points": [[-8326.844467085986, -168.03857742182362, 384], [-8326.844467085986, -168.03857742182362, 448], [-7839.630424848307, -761.7106056044056, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1036,7 +1036,7 @@
                     {
                       "id": 74,
                       "points": [[-7708.468867744618, -664.4345651285647, 448], [-7708.468867744618, -664.4345651285647, 384], [-7839.630424848307, -761.7106056044056, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1070,7 +1070,7 @@
                     {
                       "id": 76,
                       "points": [[-8083.237445967146, -464.87459151311464, 928], [-8326.844467085986, -168.03857742182362, 384], [-7839.630424848307, -761.7106056044056, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1085,7 +1085,7 @@
                     {
                       "id": 77,
                       "points": [[-7960.6256838944155, -871.3743161055849, 384], [-7839.630424848307, -761.7106056044056, 384], [-8326.844467085986, -168.03857742182362, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1099,7 +1099,7 @@
                     {
                       "id": 78,
                       "points": [[-8503.683691845683, -328.3163081543163, 384], [-8326.844467085986, -168.03857742182362, 384], [-8503.683691845683, -328.3163081543163, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1113,7 +1113,7 @@
                     {
                       "id": 79,
                       "points": [[-8503.683691845683, -328.3163081543163, 384], [-8503.683691845683, -328.3163081543163, 448], [-7960.6256838944155, -871.3743161055849, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1142,7 +1142,7 @@
                     {
                       "id": 81,
                       "points": [[-7839.630424848307, -761.7106056044056, 448], [-7839.630424848307, -761.7106056044056, 384], [-7960.6256838944155, -871.3743161055849, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1176,7 +1176,7 @@
                     {
                       "id": 83,
                       "points": [[-8232.15468787005, -599.8453121299506, 928], [-8503.683691845683, -328.3163081543163, 384], [-7960.6256838944155, -871.3743161055849, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1191,7 +1191,7 @@
                     {
                       "id": 84,
                       "points": [[-8070.289394395594, -992.3695751516939, 384], [-7960.6256838944155, -871.3743161055849, 384], [-8503.683691845683, -328.3163081543163, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1205,7 +1205,7 @@
                     {
                       "id": 85,
                       "points": [[-8663.961422578177, -505.1555329140142, 384], [-8503.683691845683, -328.3163081543163, 384], [-8663.961422578177, -505.1555329140142, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1219,7 +1219,7 @@
                     {
                       "id": 86,
                       "points": [[-8663.961422578177, -505.1555329140142, 384], [-8663.961422578177, -505.1555329140142, 448], [-8070.289394395594, -992.3695751516939, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1248,7 +1248,7 @@
                     {
                       "id": 88,
                       "points": [[-7960.6256838944155, -871.3743161055849, 448], [-7960.6256838944155, -871.3743161055849, 384], [-8070.289394395594, -992.3695751516939, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1282,7 +1282,7 @@
                     {
                       "id": 90,
                       "points": [[-8367.125408486885, -748.762554032854, 928], [-8663.961422578177, -505.1555329140142, 384], [-8070.289394395594, -992.3695751516939, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1297,7 +1297,7 @@
                     {
                       "id": 91,
                       "points": [[-8167.565434871435, -1123.5311322553819, 384], [-8070.289394395594, -992.3695751516939, 384], [-8663.961422578177, -505.1555329140142, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1311,7 +1311,7 @@
                     {
                       "id": 92,
                       "points": [[-8806.13409711979, -696.8531932963272, 384], [-8663.961422578177, -505.1555329140142, 384], [-8806.13409711979, -696.8531932963272, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1325,7 +1325,7 @@
                     {
                       "id": 93,
                       "points": [[-8806.13409711979, -696.8531932963272, 384], [-8806.13409711979, -696.8531932963272, 448], [-8167.565434871435, -1123.5311322553819, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1354,7 +1354,7 @@
                     {
                       "id": 95,
                       "points": [[-8070.289394395594, -992.3695751516939, 448], [-8070.289394395594, -992.3695751516939, 384], [-8167.565434871435, -1123.5311322553819, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1388,7 +1388,7 @@
                     {
                       "id": 97,
                       "points": [[-8486.849765995612, -910.1921627758545, 928], [-8806.13409711979, -696.8531932963272, 384], [-8167.565434871435, -1123.5311322553819, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1403,7 +1403,7 @@
                     {
                       "id": 98,
                       "points": [[-8251.516983875663, -1263.5958299215397, 384], [-8167.565434871435, -1123.5311322553819, 384], [-8806.13409711979, -696.8531932963272, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1417,7 +1417,7 @@
                     {
                       "id": 99,
                       "points": [[-8928.832514895199, -901.5631360391733, 384], [-8806.13409711979, -696.8531932963272, 384], [-8928.832514895199, -901.5631360391733, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1431,7 +1431,7 @@
                     {
                       "id": 100,
                       "points": [[-8928.832514895199, -901.5631360391733, 384], [-8928.832514895199, -901.5631360391733, 448], [-8251.516983875663, -1263.5958299215397, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1460,7 +1460,7 @@
                     {
                       "id": 102,
                       "points": [[-8167.565434871435, -1123.5311322553819, 448], [-8167.565434871435, -1123.5311322553819, 384], [-8251.516983875663, -1263.5958299215397, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1494,7 +1494,7 @@
                     {
                       "id": 104,
                       "points": [[-8590.174749385431, -1082.5794829803565, 928], [-8928.832514895199, -901.5631360391733, 384], [-8251.516983875663, -1263.5958299215397, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1509,7 +1509,7 @@
                     {
                       "id": 105,
                       "points": [[-8321.335542098781, -1411.2147685444904, 384], [-8251.516983875663, -1263.5958299215397, 384], [-8928.832514895199, -901.5631360391733, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1523,7 +1523,7 @@
                     {
                       "id": 106,
                       "points": [[-9030.875023067449, -1117.3138924881016, 384], [-8928.832514895199, -901.5631360391733, 384], [-9030.875023067449, -1117.3138924881016, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1537,7 +1537,7 @@
                     {
                       "id": 107,
                       "points": [[-9030.875023067449, -1117.3138924881016, 384], [-9030.875023067449, -1117.3138924881016, 448], [-8321.335542098781, -1411.2147685444904, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1566,7 +1566,7 @@
                     {
                       "id": 109,
                       "points": [[-8251.516983875663, -1263.5958299215397, 448], [-8251.516983875663, -1263.5958299215397, 384], [-8321.335542098781, -1411.2147685444904, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1600,7 +1600,7 @@
                     {
                       "id": 111,
                       "points": [[-8676.105282583116, -1264.264330516296, 928], [-9030.875023067449, -1117.3138924881016, 384], [-8321.335542098781, -1411.2147685444904, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1615,7 +1615,7 @@
                     {
                       "id": 112,
                       "points": [[-8376.348718658395, -1564.9662970485747, 384], [-8321.335542098781, -1411.2147685444904, 384], [-9030.875023067449, -1117.3138924881016, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1629,7 +1629,7 @@
                     {
                       "id": 113,
                       "points": [[-9111.278896500731, -1342.0276649171478, 384], [-9030.875023067449, -1117.3138924881016, 384], [-9111.278896500731, -1342.0276649171478, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1643,7 +1643,7 @@
                     {
                       "id": 114,
                       "points": [[-9111.278896500731, -1342.0276649171478, 384], [-9111.278896500731, -1342.0276649171478, 448], [-8376.348718658395, -1564.9662970485747, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1672,7 +1672,7 @@
                     {
                       "id": 116,
                       "points": [[-8321.335542098781, -1411.2147685444904, 448], [-8321.335542098781, -1411.2147685444904, 384], [-8376.348718658395, -1564.9662970485747, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1706,7 +1706,7 @@
                     {
                       "id": 118,
                       "points": [[-8743.813807579563, -1453.4969809828613, 928], [-9111.278896500731, -1342.0276649171478, 384], [-8376.348718658395, -1564.9662970485747, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1721,7 +1721,7 @@
                     {
                       "id": 119,
                       "points": [[-8416.026706590976, -1723.3697041651626, 384], [-8376.348718658395, -1564.9662970485747, 384], [-9111.278896500731, -1342.0276649171478, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1735,7 +1735,7 @@
                     {
                       "id": 120,
                       "points": [[-9169.269801940656, -1573.5403368567759, 384], [-9111.278896500731, -1342.0276649171478, 384], [-9169.269801940656, -1573.5403368567759, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1749,7 +1749,7 @@
                     {
                       "id": 121,
                       "points": [[-9169.269801940656, -1573.5403368567759, 384], [-9169.269801940656, -1573.5403368567759, 448], [-8416.026706590976, -1723.3697041651626, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1778,7 +1778,7 @@
                     {
                       "id": 123,
                       "points": [[-8376.348718658395, -1564.9662970485747, 448], [-8376.348718658395, -1564.9662970485747, 384], [-8416.026706590976, -1723.3697041651626, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1812,7 +1812,7 @@
                     {
                       "id": 125,
                       "points": [[-8792.648254265816, -1648.4550205109692, 928], [-9169.269801940656, -1573.5403368567759, 384], [-8416.026706590976, -1723.3697041651626, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1827,7 +1827,7 @@
                     {
                       "id": 126,
                       "points": [[-8439.987385182536, -1884.8994784916108, 384], [-8416.026706590976, -1723.3697041651626, 384], [-9169.269801940656, -1573.5403368567759, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1841,7 +1841,7 @@
                     {
                       "id": 127,
                       "points": [[-9204.289255266784, -1809.6223147185083, 384], [-9169.269801940656, -1573.5403368567759, 384], [-9204.289255266784, -1809.6223147185083, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1855,7 +1855,7 @@
                     {
                       "id": 128,
                       "points": [[-9204.289255266784, -1809.6223147185083, 384], [-9204.289255266784, -1809.6223147185083, 448], [-8439.987385182536, -1884.8994784916108, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1884,7 +1884,7 @@
                     {
                       "id": 130,
                       "points": [[-8416.026706590976, -1723.3697041651626, 448], [-8416.026706590976, -1723.3697041651626, 384], [-8439.987385182536, -1884.8994784916108, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1918,7 +1918,7 @@
                     {
                       "id": 132,
                       "points": [[-8822.13832022466, -1847.2608966050595, 928], [-9204.289255266784, -1809.6223147185083, 384], [-8439.987385182536, -1884.8994784916108, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1933,7 +1933,7 @@
                     {
                       "id": 133,
                       "points": [[-8448, -2047.9999999999998, 384], [-8439.987385182536, -1884.8994784916108, 384], [-9204.289255266784, -1809.6223147185083, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 1},
                       "rotation": 0,
@@ -1947,7 +1947,7 @@
                     {
                       "id": 134,
                       "points": [[-9216, -2047.9999999999998, 384], [-9204.289255266784, -1809.6223147185083, 384], [-9216, -2047.9999999999998, 448]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1961,7 +1961,7 @@
                     {
                       "id": 135,
                       "points": [[-9216, -2047.9999999999998, 384], [-9216, -2047.9999999999998, 448], [-8448, -2047.9999999999998, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 6784, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -1990,7 +1990,7 @@
                     {
                       "id": 137,
                       "points": [[-8439.987385182536, -1884.8994784916108, 448], [-8439.987385182536, -1884.8994784916108, 384], [-8448, -2047.9999999999998, 384]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 1},
                       "v": {"axis": [0, 0, -1], "offset": 384, "scale": 1},
                       "rotation": 0,
@@ -2031,7 +2031,7 @@
                     {
                       "id": 1,
                       "points": [[512, 256, 1920], [512, -256, 1920], [512, -256, 1984]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2045,7 +2045,7 @@
                     {
                       "id": 2,
                       "points": [[0, -256, 1984], [0, -256, 1920], [0, 256, 1920]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2059,7 +2059,7 @@
                     {
                       "id": 3,
                       "points": [[0, 256, 1984], [0, 256, 1920], [512, 256, 1920]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2073,7 +2073,7 @@
                     {
                       "id": 4,
                       "points": [[512, -256, 1920], [0, -256, 1920], [0, -256, 1984]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2087,7 +2087,7 @@
                     {
                       "id": 5,
                       "points": [[512, -256, 1984], [0, -256, 1984], [0, 256, 1984]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2101,7 +2101,7 @@
                     {
                       "id": 6,
                       "points": [[0, 256, 1920], [0, -256, 1920], [512, -256, 1920]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2128,7 +2128,7 @@
                     {
                       "id": 7,
                       "points": [[-8576, -2304, 256], [-8576, -2816, 256], [-8576, -2816, 320]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2142,7 +2142,7 @@
                     {
                       "id": 8,
                       "points": [[-9088, -2816, 320], [-9088, -2816, 256], [-9088, -2304, 256]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [0, 1, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2156,7 +2156,7 @@
                     {
                       "id": 9,
                       "points": [[-9088, -2304, 320], [-9088, -2304, 256], [-8576, -2304, 256]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2170,7 +2170,7 @@
                     {
                       "id": 10,
                       "points": [[-8576, -2816, 256], [-9088, -2816, 256], [-9088, -2816, 320]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, 0, -1], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2184,7 +2184,7 @@
                     {
                       "id": 11,
                       "points": [[-8576, -2816, 320], [-9088, -2816, 320], [-9088, -2304, 320]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2198,7 +2198,7 @@
                     {
                       "id": 12,
                       "points": [[-9088, -2304, 256], [-9088, -2816, 256], [-8576, -2816, 256]],
-                      "material": "MetalWalkway011/MetalWalkway011",
+                      "material": "Materials/SourceInspired/Industrial/src_industrial_grate/src_industrial_grate",
                       "u": {"axis": [1, 0, 0], "offset": 0, "scale": 0.5},
                       "v": {"axis": [0, -1, 0], "offset": 0, "scale": 0.5},
                       "rotation": 0,
@@ -2648,7 +2648,7 @@
                 {
                   "id": 163,
                   "points": [[1024, 1280, -64], [1024, -3584, -64], [1024, -3584, 0]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [0, 1, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, 0, -1], "offset": 0, "scale": 2},
                   "rotation": 0,
@@ -2662,7 +2662,7 @@
                 {
                   "id": 164,
                   "points": [[-9600, -3584, 0], [-9600, -3584, -64], [-9600, 1280, -64]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [0, 1, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, 0, -1], "offset": 0, "scale": 2},
                   "rotation": 0,
@@ -2676,7 +2676,7 @@
                 {
                   "id": 165,
                   "points": [[-9600, 1280, 0], [-9600, 1280, -64], [1024, 1280, -64]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [1, 0, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, 0, -1], "offset": 0, "scale": 2},
                   "rotation": 0,
@@ -2690,7 +2690,7 @@
                 {
                   "id": 166,
                   "points": [[1024, -3584, -64], [-9600, -3584, -64], [-9600, -3584, 0]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [1, 0, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, 0, -1], "offset": 0, "scale": 2},
                   "rotation": 0,
@@ -2704,7 +2704,7 @@
                 {
                   "id": 167,
                   "points": [[1024, -3584, 0], [-9600, -3584, 0], [-9600, 1280, 0]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [1, 0, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, -1, 0], "offset": 0, "scale": 2},
                   "rotation": 0,
@@ -2718,7 +2718,7 @@
                 {
                   "id": 168,
                   "points": [[-9600, 1280, -64], [-9600, -3584, -64], [1024, -3584, -64]],
-                  "material": "Lava/Lava001_1K-JPG_Color",
+                  "material": "Materials/Retro/Terrain/ret_terrain_lava/ret_terrain_lava",
                   "u": {"axis": [1, 0, 0], "offset": 0, "scale": 2},
                   "v": {"axis": [0, -1, 0], "offset": 0, "scale": 2},
                   "rotation": 0,
