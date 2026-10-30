@@ -1,7 +1,7 @@
 # Counter-Strike: Source SDK
 
 Make maps for Valve's Counter-Strike: Source in MapCraft.
-The SDK holds the manifest and compile profile; the `source` plugin (`plugins/source`) lists the game's materials and reads and writes Hammer `.vmf` files, and `source-bsp` imports compiled maps.
+The SDK holds the manifest and compile profiles; the `source` plugin (`plugins/source`) lists the game's materials and reads and writes Hammer `.vmf` files, and `source-bsp` imports compiled maps.
 The game's materials, its entity definitions (`bin/cstrike.fgd`) and its compilers stay in your own install and are never copied into MapCraft.
 
 ## Setup
@@ -9,7 +9,10 @@ The game's materials, its entity definitions (`bin/cstrike.fgd`) and its compile
 1. Install the SDK from File > SDK Manager…, which brings its plugins.
    In a MapCraft source checkout, `cargo xtask plugins` builds `source.wasm` and `source-bsp.wasm` into `sdks/cstrike/plugins` instead.
 2. Set **Counter-Strike: Source game folder** in File > SDK Settings to the game's `cstrike` folder.
-   The Windows version of the game is needed for `bin/cstrike.fgd` and the compilers; on Linux, the compilers run through Wine.
+3. Only the Windows version of the game ships `bin/cstrike.fgd` (with `base.fgd` and `halflife2.fgd` beside it).
+   On the Linux version, point **cstrike.fgd** at a copy of that folder's `cstrike.fgd`.
+4. On Linux, the Fast, Compile, Final and Build and play profiles run vbsp, vvis and vrad built for Linux from the Source SDK, which go in the game's `bin/linux64` folder.
+   The game's Linux version does not include them; Compile with Wine runs the Windows version's compilers instead.
 
 The [Counter-Strike: Source guide](https://github.com/bearlikelion/MapCraft/blob/main/docs/guide/cstrike.md) covers what is imported, exported and skipped.
 
