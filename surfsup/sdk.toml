@@ -1,9 +1,11 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "5"
+version = "6"
 description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
+# Zones are untextured and show their class color; SurfsUp never draws them.
+triggers = ["zone_*", "teleport_zone", "bhop_zone", "kill_box"]
 
 # `textures` holds editor copies of the game's Materials, so they show without the project; the game uses its own.
 [textures]

@@ -1,16 +1,19 @@
 id = "cstrike"
 name = "Counter-Strike: Source"
-version = "3"
+version = "4"
 description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles, native on Linux."
 plugins = ["source", "source-bsp"]
 # Valve's entity definitions from the game's Windows version, which the Linux version lacks.
 fgd = ["fgd/cstrike.fgd"]
+# Brush volumes the game watches: their brushes lose their materials and export with tools/toolstrigger.
+triggers = ["trigger*", "func_buyzone", "func_bomb_target", "func_hostage_rescue"]
 # Source's coordinate limit; vbsp leaks or fails past it.
 map_size = [-16384, 16384]
 
 [textures]
 default = "dev/dev_measuregeneric01b"
 scale = 0.25
+trigger = "tools/toolstrigger"
 
 # The plugins read materials from the game's packages; CS:S uses HL2's too.
 [files]
