@@ -129,6 +129,22 @@
 	ambient_energy(float) : "Ambient light" : "1" : "How much the sky lights surfaces the sun misses."
 	fog_density(float) : "Fog density" : "0" : "0 turns fog off; around 0.002 gives a light haze."
 	fog_color(color255) : "Fog color" : "184 204 224"
+	fog_enabled(choices) : "Fog enabled" : -1 : "Auto uses Fog density; Disabled overrides the density." = [ -1 : "Auto" 0 : "Disabled" 1 : "Enabled" ]
+	fog_light_energy(float) : "Fog brightness" : "1"
+	fog_sun_scatter(float) : "Fog sun scatter" : "0" : "0 to 1."
+	fog_sky_affect(float) : "Fog sky affect" : "1" : "0 to 1."
+	sky_curve(float) : "Sky horizon curve" : "0.15" : "0.001 to 1."
+	ground_curve(float) : "Ground horizon curve" : "0.02" : "0.001 to 1."
+	sky_energy_multiplier(float) : "Sky brightness" : "1"
+	ground_energy_multiplier(float) : "Ground brightness" : "1"
+	tonemap_mode(choices) : "Tonemapper" : 2 = [ 0 : "Linear" 1 : "Reinhardt" 2 : "Filmic" 3 : "ACES (viewport approximation)" 4 : "AgX (Godot only)" ]
+	tonemap_exposure(float) : "Exposure" : "1" : "Before tonemapping, 0 to 64."
+	tonemap_white(float) : "White point" : "1" : "0.001 to 64; used by Filmic and Reinhardt."
+	adjustment_enabled(boolean) : "Color adjustments" : 0
+	adjustment_brightness(float) : "Adjustment brightness" : "1" : "After tonemapping, 0 to 8."
+	adjustment_contrast(float) : "Contrast" : "1" : "0 to 8."
+	adjustment_saturation(float) : "Saturation" : "1" : "0 to 8, 0 is grayscale."
+
 ]
 
 @PointClass base(Targetname) studio() color(255 255 255) = prop_static : "A glTF model from the project, instanced as its scene in Godot."
