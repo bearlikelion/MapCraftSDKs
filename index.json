@@ -41,14 +41,14 @@
     {
       "id": "surfsup",
       "name": "SurfsUp",
-      "version": "6",
+      "version": "7",
       "description": "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp.",
       "author": "",
       "license": "",
       "homepage": "",
-      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/surfsup-6/surfsup-6.zip",
-      "sha256": "884964c6fe002dfdd51d515d35e8b7048978b23a9d87475471a71534e8b72b2b",
-      "size": 80891832,
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/surfsup-7/surfsup-7.zip",
+      "sha256": "ad99211d3d36e44802c08e1ffb13e004dfb19233425ae574c4930f1f93ace49c",
+      "size": 80892528,
       "min_mapcraft": "0.3.0",
       "plugins": [
         "godot",
