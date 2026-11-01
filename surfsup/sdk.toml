@@ -28,17 +28,32 @@ prompt = "SurfsUp game executable"
 kind = "file"
 steam = { app = 3454830, find = ["SurfsUp.x86_64", "SurfsUp.exe"] }
 
+[paths.godot]
+prompt = "Godot executable for running the SurfsUp project from source (developers only)"
+kind = "file"
+
+[paths.surfsup_project]
+prompt = "SurfsUp Godot project folder, the one holding project.godot (developers only)"
+
 [paths.cstrike]
 prompt = "Counter-Strike: Source game folder (the cstrike folder), for textures of imported BSP maps"
 steam = { app = 240, find = ["cstrike"] }
 
-# SurfsUp loads .mcmap files straight from the Maps folder next to its executable, which the copy creates when missing.
+# SurfsUp loads maps straight from the Maps folder next to its executable: a .mcpck holding the map and its custom pictures and models, else a plain .mcmap.
 # Started from Steam, the editor carries its own app id, which the game must not inherit.
 [[compile]]
 name = "Play in SurfsUp"
 steps = [
-    { copy = "${map}", to = "${game_dir}/Maps/${map_name}.mcmap" },
+    { pack = "${map}", to = "${game_dir}/Maps/${map_name}.mcpck" },
     { run = "${game}", args = ["+map", "${map_name}"], env = { SteamAppId = "3454830", SteamGameId = "3454830" } },
+]
+
+# Developers: runs the SurfsUp Godot project from source with the given Godot binary; the game loads res://Maps first.
+[[compile]]
+name = "Play in SurfsUp project (dev)"
+steps = [
+    { pack = "${map}", to = "${surfsup_project}/Maps/${map_name}.mcpck" },
+    { run = "${godot}", args = ["--path", "${surfsup_project}", "+map", "${map_name}"], env = { SteamAppId = "3454830", SteamGameId = "3454830" } },
 ]
 
 [workshop]
