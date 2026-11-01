@@ -127,12 +127,19 @@
 	sky_horizon_color(color255) : "Horizon color" : "184 204 224"
 	ground_color(color255) : "Ground color" : "51 54 59" : "The sky below the horizon."
 	ambient_energy(float) : "Ambient light" : "1" : "How much the sky lights surfaces the sun misses."
-	fog_density(float) : "Fog density" : "0" : "0 turns fog off; around 0.002 gives a light haze."
+	fog_density(float) : "Fog density" : "0" : "Per meter, 0 to 1; 0 turns fog off and around 0.002 gives a light haze."
 	fog_color(color255) : "Fog color" : "184 204 224"
 	fog_enabled(choices) : "Fog enabled" : -1 : "Auto uses Fog density; Disabled overrides the density." = [ -1 : "Auto" 0 : "Disabled" 1 : "Enabled" ]
 	fog_light_energy(float) : "Fog brightness" : "1"
 	fog_sun_scatter(float) : "Fog sun scatter" : "0" : "0 to 1."
-	fog_sky_affect(float) : "Fog sky affect" : "1" : "0 to 1."
+	fog_sky_affect(float) : "Fog sky affect" : "1" : "How much fog covers the sky, 0 to 1."
+	fog_mode(choices) : "Fog mode" : 0 : "Exponential thickens with distance by the density; Depth fades in from Depth begin to Depth end, with the density as its strongest." = [ 0 : "Exponential" 1 : "Depth" ]
+	fog_depth_curve(float) : "Fog depth curve" : "1" : "Depth mode, 0.00001 to 16; above 1 the fog stays thin longer."
+	fog_depth_begin(float) : "Fog depth begin" : "10" : "Depth mode, meters from the camera where fog starts."
+	fog_depth_end(float) : "Fog depth end" : "100" : "Depth mode, meters where fog is strongest; 0 reaches the far plane."
+	fog_height(float) : "Fog height" : "0" : "Height fog, meters: below this height the fog thickens."
+	fog_height_density(float) : "Fog height density" : "0" : "Height fog, -16 to 16 per meter; 0 turns it off, negative puts the fog above Fog height."
+	fog_aerial_perspective(float) : "Fog aerial perspective" : "0" : "0 to 1; blends the fog color toward the sky behind it, so distant things fade into the sky."
 	sky_curve(float) : "Sky horizon curve" : "0.15" : "0.001 to 1."
 	ground_curve(float) : "Ground horizon curve" : "0.02" : "0.001 to 1."
 	sky_energy_multiplier(float) : "Sky brightness" : "1"
@@ -144,6 +151,15 @@
 	adjustment_brightness(float) : "Adjustment brightness" : "1" : "After tonemapping, 0 to 8."
 	adjustment_contrast(float) : "Contrast" : "1" : "0 to 8."
 	adjustment_saturation(float) : "Saturation" : "1" : "0 to 8, 0 is grayscale."
+	glow_enabled(boolean) : "Glow" : 0 : "Bloom around bright and emissive surfaces in Godot; the editor views do not draw it."
+	glow_intensity(float) : "Glow intensity" : "0.3" : "0 to 8."
+	glow_strength(float) : "Glow strength" : "1" : "How far the glow spreads, 0 to 2."
+	glow_bloom(float) : "Glow bloom" : "0" : "0 to 1; above 0 everything glows a little, not just bright surfaces."
+	glow_hdr_threshold(float) : "Glow threshold" : "1" : "0 to 4; brightness a surface needs to glow, so lower it to make dimmer emission glow."
+	glow_hdr_scale(float) : "Glow HDR scale" : "2" : "0 to 4; how strongly brightness past the threshold glows."
+	glow_hdr_luminance_cap(float) : "Glow brightness cap" : "12" : "0 to 256."
+	glow_mix(float) : "Glow mix" : "0.05" : "0 to 1, used by the Mix blend mode."
+	glow_blend_mode(choices) : "Glow blend mode" : 1 = [ 0 : "Additive" 1 : "Screen" 2 : "Softlight" 3 : "Replace" 4 : "Mix" ]
 
 ]
 
@@ -152,6 +168,7 @@
 	model(studio) : "Model" : : "Path of a .glb or .gltf file in the project, such as Assets/Models/crate.glb."
 	angles(angle) : "Pitch Yaw Roll" : "0 0 0"
 	scale(float) : "Scale" : "1"
+	collision(choices) : "Collision" : "convex" : "Convex wraps each mesh in one hull, cheap and right for crates and rocks; Trimesh collides with the exact triangles." = [ "none" : "None" "convex" : "Convex" "trimesh" : "Trimesh" ]
 ]
 
 @AutoVisGroup = "Zones"

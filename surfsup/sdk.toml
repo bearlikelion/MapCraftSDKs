@@ -1,6 +1,6 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "7"
+version = "8"
 description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
