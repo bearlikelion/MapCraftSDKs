@@ -1,6 +1,11 @@
 // SurfsUp entities for MapCraft. Zones become Area3D nodes tagged with `sdk_zone` in Godot.
 
-@SolidClass = worldspawn : "World" []
+@SolidClass = worldspawn : "World"
+[
+	_lightmap_scale(float) : "Lightmap scale" : "64" : "World units per luxel of baked lighting; smaller is sharper but slower to bake and larger in the game, which takes at most 64 MB of it. A face's own lightmap scale wins."
+	_bounce(integer) : "Light bounces" : 1 : "How many times baked light bounces off surfaces, 0 to 16."
+	_minlight(color255) : "Minimum light" : "0 0 0 0" : "Color and brightness no baked surface falls below."
+]
 
 @BaseClass = Targetname
 [
@@ -122,6 +127,7 @@
 	angles(angle) : "Sun direction (Pitch Yaw Roll)" : "50 135 0" : "The way the sunlight travels; pitch is degrees below the horizon."
 	sun_color(color255) : "Sun color" : "255 245 230"
 	sun_energy(float) : "Sun brightness" : "1"
+	sun_spread(float) : "Sun size" : "0.5" : "Degrees across the sun's disk; bigger softens baked shadows."
 	shadows(boolean) : "Shadows" : 1
 	sky_top_color(color255) : "Sky color" : "77 122 191"
 	sky_horizon_color(color255) : "Horizon color" : "184 204 224"
@@ -161,6 +167,31 @@
 	glow_mix(float) : "Glow mix" : "0.05" : "0 to 1, used by the Mix blend mode."
 	glow_blend_mode(choices) : "Glow blend mode" : 1 = [ 0 : "Additive" 1 : "Screen" 2 : "Softlight" 3 : "Replace" 4 : "Mix" ]
 
+]
+
+@BaseClass = BakedLight
+[
+	_light(color255) : "Color and brightness" : "255 255 255 255" : "Red, green, blue and brightness: 255 lights a surface right at the light like a sun of brightness 1, more is brighter. With Range 0 the brightness is the light 100 units away instead. Baked into the lightmap, so it costs nothing in the game."
+	range(float) : "Range" : "1024" : "Units the light reaches: full brightness at the light, easing to nothing at the range. 0 uses the falloff keys below instead."
+	size(float) : "Size" : "0" : "The light's diameter in units; bigger casts softer shadows, 0 casts hard ones."
+	_fifty_percent_distance(float) : "50% falloff distance" : "0" : "Units where half the light is left; 0 uses inverse square falloff instead."
+	_zero_percent_distance(float) : "0% falloff distance" : "0" : "Units where the light ends, with a 50% distance; 0 uses four times the 50% distance."
+	_hardfalloff(boolean) : "Hard falloff" : 0 : "Fade smoothly to nothing at the 0% distance."
+	_constant_attn(float) : "Constant attenuation" : "0"
+	_linear_attn(float) : "Linear attenuation" : "0"
+	_quadratic_attn(float) : "Quadratic attenuation" : "1"
+]
+
+@PointClass base(BakedLight) size(-8 -8 -8, 8 8 8) color(255 255 128) = light : "A baked point light."
+[
+]
+
+@PointClass base(BakedLight) size(-8 -8 -8, 8 8 8) color(255 255 128) = light_spot : "A baked spotlight."
+[
+	angles(angle) : "Aim (Pitch Yaw Roll)" : "-90 0 0" : "Pitch -90 points straight down."
+	_inner_cone(float) : "Inner cone" : "30" : "Degrees from the aim where the light starts to fade."
+	_cone(float) : "Outer cone" : "45" : "Degrees from the aim where the light ends."
+	_exponent(float) : "Cone falloff" : "1" : "How the light fades between the cones."
 ]
 
 @PointClass base(Targetname) studio() color(255 255 255) = prop_static : "A glTF model from the project, instanced as its scene in Godot."

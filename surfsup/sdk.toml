@@ -7,6 +7,12 @@ fgd = ["fgd/surfsup.fgd"]
 # Zones are untextured and show their class color; SurfsUp never draws them.
 triggers = ["zone_*", "teleport_zone", "bhop_zone", "kill_box"]
 
+# Lighting bakes with MapCraft's baker into a .mclight file the game's importer applies as lightmaps.
+[lightmaps]
+luxel = 64
+bounces = 1
+rays = 32
+
 # `textures` holds editor copies of the game's Materials; the game uses its own.
 [textures]
 roots = ["textures"]
