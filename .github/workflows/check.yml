@@ -7,12 +7,12 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Check out MapCraft
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: bearlikelion/MapCraft
           path: mapcraft
