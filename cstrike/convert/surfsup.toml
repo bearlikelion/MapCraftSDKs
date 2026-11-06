@@ -1,0 +1,64 @@
+# SurfsUp maps converted to Counter-Strike: Source, from File > Switch SDK's Convert.
+# Start and finish get the names surf timers find on their own; SurfsUp-only keys are removed.
+
+[classes.zone_start]
+to = "trigger_multiple"
+set = { targetname = "map_start", wait = "0" }
+remove = ["course_id", "play_sfx", "run_direction"]
+
+[classes.zone_finish]
+to = "trigger_multiple"
+set = { targetname = "map_end", wait = "0" }
+remove = ["course_id", "reset_staged_map", "reset_on_entry"]
+
+[classes.zone_split]
+to = "trigger_multiple"
+set = { wait = "0" }
+remove = ["split_index", "course_id"]
+
+[classes.zone_checkpoint]
+to = "trigger_multiple"
+set = { wait = "0" }
+remove = ["pause_score", "keep_jump_on_teleport"]
+
+[classes.bhop_zone]
+to = "trigger_multiple"
+set = { wait = "0" }
+remove = ["pause_score", "keep_jump_on_teleport"]
+
+[classes.zone_respawn]
+to = "trigger_multiple"
+set = { wait = "0" }
+remove = ["respawn", "is_alt_spawn", "bhop_area"]
+
+[classes.teleport_zone]
+to = "trigger_teleport"
+keys = { next_stage = "target", filter_name = "filtername" }
+set = { spawnflags = "1" }
+remove = ["do_not_set_spawn", "kill_velocity", "keep_offset", "align_to_spawn", "cancel_run", "to_current_stage", "filter_negated"]
+
+[classes.zone_point_tp]
+to = "trigger_teleport"
+set = { spawnflags = "1" }
+remove = ["reset_velocity_on_teleport", "reset_view_on_teleport", "horizontal_view_override", "cancel_run"]
+
+[classes.teleport_destination]
+to = "info_teleport_destination"
+
+[classes.zone_booster]
+to = "trigger_push"
+keys = { boost_velocity = "speed" }
+set = { spawnflags = "1" }
+remove = ["boost_mode", "boost_direction", "freeze_gravity", "boost_on_exit"]
+
+[classes.kill_box]
+to = "trigger_hurt"
+set = { damage = "100000", spawnflags = "1" }
+remove = ["play_sfx", "kill_kind", "disabled_in_freestyle"]
+
+[classes.info_player_start]
+to = "info_player_counterterrorist"
+
+[materials]
+"tools/clip" = "tools/toolsplayerclip"
+"tools/trigger" = "tools/toolstrigger"

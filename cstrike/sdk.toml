@@ -1,6 +1,6 @@
 id = "cstrike"
 name = "Counter-Strike: Source"
-version = "4"
+version = "5"
 description = "Valve's Counter-Strike: Source: .vmf import and export, the game's materials, and vbsp, vvis and vrad compiles, native on Linux."
 plugins = ["source", "source-bsp"]
 # Valve's entity definitions from the game's Windows version, which the Linux version lacks.
@@ -28,6 +28,7 @@ prompt = "Counter-Strike: Source game folder (the cstrike folder)"
 
 # Linux runs vbsp, vvis and vrad built for Linux from the Source SDK and placed in the game's bin/linux64 beside the libraries they load.
 # The .vmf goes in a build folder beside the map, so a mapper's own .vmf of the same name is never overwritten.
+# Materials the game does not ship, such as a converted SurfsUp map's, are packed into the .bsp after vrad.
 
 [[compile]]
 name = "Fast"
@@ -37,6 +38,7 @@ steps = [
     { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vvis", args = ["-fast", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vrad", args = ["-fast", "-bounce", "2", "-noextra", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -48,6 +50,7 @@ steps = [
     { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vrad", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -59,6 +62,7 @@ steps = [
     { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vrad", args = ["-both", "-final", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -70,6 +74,7 @@ steps = [
     { run = "${cstrike}/../bin/linux64/vbsp", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vvis", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
     { run = "${cstrike}/../bin/linux64/vrad", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build", env = { LD_LIBRARY_PATH = "${cstrike}/../bin/linux64" } },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
     { run = "steam", args = ["-applaunch", "240", "-novid", "-console", "+map", "${map_name}"] },
 ]
@@ -84,6 +89,7 @@ steps = [
     { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-fast", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-fast", "-bounce", "2", "-noextra", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -95,6 +101,7 @@ steps = [
     { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -106,6 +113,7 @@ steps = [
     { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-both", "-final", "-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]
 
@@ -117,6 +125,7 @@ steps = [
     { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], cwd = "${map_dir}/build" },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
     { run = "${cstrike}/../cstrike_win64.exe", args = ["-game", "cstrike", "-hijack", "-novid", "-console", "+map", "${map_name}"], cwd = "${cstrike}/.." },
 ]
@@ -131,5 +140,6 @@ steps = [
     { run = "${cstrike}/../bin/x64/vbsp.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.vmf"], wine = true, cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vvis.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
     { run = "${cstrike}/../bin/x64/vrad.exe", args = ["-game", "${cstrike}", "${map_dir}/build/${map_name}.bsp"], wine = true, cwd = "${map_dir}/build" },
+    { embed = "bsp", into = "${map_dir}/build/${map_name}.bsp" },
     { copy = "${map_dir}/build/${map_name}.bsp", to = "${cstrike}/maps/${map_name}.bsp" },
 ]

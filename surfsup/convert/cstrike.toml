@@ -1,0 +1,62 @@
+# Counter-Strike: Source maps converted to SurfsUp, from File > Switch SDK's Convert or a BSP import.
+# Start, finish, stage and split zones are not entities in CS:S surf maps; the server's timer keeps them, so place them with Zone from Selection.
+
+[classes.trigger_teleport]
+to = "teleport_zone"
+keys = { target = "next_stage", filtername = "filter_name" }
+remove = ["landmark", "spawnflags", "StartDisabled"]
+
+[classes.info_teleport_destination]
+to = "teleport_destination"
+
+[classes.trigger_push]
+to = "zone_booster"
+keys = { speed = "boost_velocity" }
+remove = ["spawnflags", "alternateticksfix", "StartDisabled"]
+
+[classes.trigger_hurt]
+to = "kill_box"
+remove = ["damage", "damagecap", "damagetype", "damagemodel", "nodmgforce", "master", "spawnflags", "StartDisabled"]
+
+# SurfsUp has one spawn point.
+[classes.info_player_terrorist]
+to = "info_player_start"
+single = true
+
+[classes.info_player_counterterrorist]
+to = "info_player_start"
+single = true
+
+[classes.info_player_deathmatch]
+to = "info_player_start"
+single = true
+
+# Solid geometry SurfsUp has no class for joins the world.
+[classes.func_wall]
+world = true
+
+[classes.func_brush]
+world = true
+
+[classes.func_wall_toggle]
+world = true
+
+# Counter-Strike game modes and engine helpers mean nothing in SurfsUp.
+[classes.func_buyzone]
+drop = true
+
+[classes.func_bomb_target]
+drop = true
+
+[classes.func_hostage_rescue]
+drop = true
+
+[classes.info_map_parameters]
+drop = true
+
+[classes.env_cubemap]
+drop = true
+
+[materials]
+"tools/toolsclip" = "tools/clip"
+"tools/toolsplayerclip" = "tools/clip"
