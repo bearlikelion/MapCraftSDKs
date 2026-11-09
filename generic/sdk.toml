@@ -1,0 +1,13 @@
+id = "generic"
+name = "Generic Map"
+version = "1"
+description = "Quake and TrenchBroom style .map files for any game: import and export, with textures from a folder of pictures or WADs."
+plugins = ["quake"]
+
+# Materials are named by their path in the folder, as TrenchBroom names them; WADs in it are read too.
+[textures]
+roots = ["${textures}"]
+extensions = ["png", "jpg", "jpeg", "tga", "bmp", "ktx2"]
+
+[paths.textures]
+prompt = "Folder holding the game's textures"

@@ -9,12 +9,12 @@ MapCraft's SDK Manager (File > SDK Manager…) reads the same `index.json`, so a
 
 - `index.json`: the registry MapCraft reads, at `https://raw.githubusercontent.com/bearlikelion/MapCraftSDKs/main/index.json`.
 - `templates/basic/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
-- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/` and `cstrike/`; an SDK can also live in its own repository and only add an entry to `index.json`.
+- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/`, `cstrike/` and `generic/`; an SDK can also live in its own repository and only add an entry to `index.json`.
 - `.github/workflows/check.yml`: the checks every pull request runs.
 - `.github/workflows/release.yml`: publishes the SDKs here to GitHub Releases and keeps `index.json` current.
 
 This repository is also MapCraft's `sdks/` folder, as a git submodule, which is why SDK folders sit at the top level.
-MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/` and `cstrike/plugins/` with `cargo xtask plugins`; those builds are not committed, and the release workflow builds them the same way into each zip.
+MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/`, `cstrike/plugins/` and `generic/plugins/` with `cargo xtask plugins`; those builds are not committed, and the release workflow builds them the same way into each zip.
 
 ## How the SDKs here are released
 
