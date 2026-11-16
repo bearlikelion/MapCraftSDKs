@@ -1,0 +1,15 @@
+id = "everquest"
+name = "EverQuest"
+version = "1"
+description = "EverQuest zones: S3D import with the zone's textures, placed objects and lights, in EverQuest's own coordinates."
+plugins = ["everquest"]
+# Zones keep EverQuest's units, about a foot each, so locations match the game's /loc and server databases.
+units_per_meter = 3.28
+fgd = ["fgd/godot.fgd"]
+
+# The plugin reads each zone's _obj.s3d from the EverQuest folder for object models, never writing to it.
+[files]
+roots = ["${everquest}"]
+
+[paths.everquest]
+prompt = "EverQuest folder (the one holding gfaydark.s3d)"

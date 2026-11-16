@@ -9,12 +9,12 @@ MapCraft's SDK Manager (File > SDK Manager…) reads the same `index.json`, so a
 
 - `index.json`: the registry MapCraft reads, at `https://raw.githubusercontent.com/bearlikelion/MapCraftSDKs/main/index.json`.
 - `templates/basic/`: a minimal SDK to start from, the same one MapCraft's Create tab writes.
-- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/`, `cstrike/` and `generic/`; an SDK can also live in its own repository and only add an entry to `index.json`.
+- `<id>/`: SDKs whose source lives in this repository, such as `surfsup/`, `quake/`, `cstrike/`, `generic/` and `everquest/`; an SDK can also live in its own repository and only add an entry to `index.json`.
 - `.github/workflows/check.yml`: the checks every pull request runs.
 - `.github/workflows/release.yml`: publishes the SDKs here to GitHub Releases and keeps `index.json` current.
 
 This repository is also MapCraft's `sdks/` folder, as a git submodule, which is why SDK folders sit at the top level.
-MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/`, `cstrike/plugins/` and `generic/plugins/` with `cargo xtask plugins`; those builds are not committed, and the release workflow builds them the same way into each zip.
+MapCraft builds the first-party plugins into `surfsup/plugins/`, `quake/plugins/`, `cstrike/plugins/`, `generic/plugins/` and `everquest/plugins/` with `cargo xtask plugins`; those builds are not committed, and the release workflow builds them the same way into each zip.
 
 ## How the SDKs here are released
 
@@ -32,7 +32,7 @@ If a run fails after creating a release, delete that release and its tag, then r
 
 An SDK folder may hold a `logo.png` or `logo.jpg`, shown on the SDK's card in MapCraft; a wide picture such as a 460x215 Steam header fits best.
 The release workflow adds it to the entry as `"logo": "<id>/logo.jpg"`, a path relative to `index.json`.
-The Quake and Counter-Strike: Source logos are trademarks of id Software and Valve, used only to name the games those SDKs are for.
+The Quake, Counter-Strike: Source and EverQuest logos are trademarks of id Software, Valve and Daybreak Game Company, used only to name the games those SDKs are for.
 
 ## Publishing an SDK
 
