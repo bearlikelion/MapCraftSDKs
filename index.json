@@ -22,6 +22,22 @@
       "logo": "cstrike/logo.jpg"
     },
     {
+      "id": "generic",
+      "name": "Generic Map",
+      "version": "1",
+      "description": "Quake and TrenchBroom style .map files for any game: import and export, with textures from a folder of pictures or WADs.",
+      "author": "",
+      "license": "",
+      "homepage": "",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/generic-1/generic-1.zip",
+      "sha256": "9f10852950af1f7377bb0527af64122254adf777e169ef30af0891dd244d4c9c",
+      "size": 124312,
+      "min_mapcraft": "0.5.1",
+      "plugins": [
+        "quake"
+      ]
+    },
+    {
       "id": "quake",
       "name": "Quake",
       "version": "3",
