@@ -57,15 +57,15 @@
     {
       "id": "quake",
       "name": "Quake",
-      "version": "3",
+      "version": "4",
       "description": "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles.",
       "author": "",
       "license": "",
       "homepage": "",
-      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/quake-3/quake-3.zip",
-      "sha256": "bb7e320f55442fee2717b5bf677c164340a68bea10a0a9b7171adcb003bf80e0",
-      "size": 166758,
-      "min_mapcraft": "0.3.0",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/quake-4/quake-4.zip",
+      "sha256": "3cb8baca463c245ad0bf689035d6d3c8e9520d14fd87d3ed9c805c80c6d148b2",
+      "size": 168275,
+      "min_mapcraft": "0.6.1",
       "plugins": [
         "quake"
       ],
