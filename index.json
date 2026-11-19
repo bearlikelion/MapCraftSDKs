@@ -22,6 +22,23 @@
       "logo": "cstrike/logo.jpg"
     },
     {
+      "id": "everquest",
+      "name": "EverQuest",
+      "version": "1",
+      "description": "EverQuest zones: S3D import with the zone's textures, placed objects and lights, in EverQuest's own coordinates.",
+      "author": "",
+      "license": "",
+      "homepage": "",
+      "download": "https://github.com/bearlikelion/MapCraftSDKs/releases/download/everquest-1/everquest-1.zip",
+      "sha256": "5dc8d24da2f6ea246bbaa306a76b157c907eecd6a4e18d9c38df0863e51f12f0",
+      "size": 137609,
+      "min_mapcraft": "0.6.0",
+      "plugins": [
+        "everquest"
+      ],
+      "logo": "everquest/logo.jpg"
+    },
+    {
       "id": "generic",
       "name": "Generic Map",
       "version": "1",
