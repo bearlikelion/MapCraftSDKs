@@ -1,6 +1,6 @@
 id = "quake"
 name = "Quake"
-version = "3"
+version = "4"
 description = "id Software's Quake: .map import and export, WAD textures and ericw-tools compiles."
 plugins = ["quake"]
 # Quake units are close enough to inches, MapCraft's own unit.
