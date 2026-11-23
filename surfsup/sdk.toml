@@ -1,6 +1,6 @@
 id = "surfsup"
 name = "SurfsUp"
-version = "12"
+version = "13"
 description = "Surf maps for SurfsUp: the Surf Ramp generator, start, split and finish zones, the game's materials and Play in SurfsUp."
 plugins = ["godot", "source-bsp", "surfsup"]
 fgd = ["fgd/surfsup.fgd"]
@@ -18,6 +18,9 @@ rays = 32
 roots = ["textures"]
 extensions = ["png", "jpg", "jpeg"]
 default = "ramps-orange1"
+# Blocks start invisible, so mappers paint only the faces players see and hidden faces never z-fight.
+new_brush = "tools/skip"
+nodraw = "tools/skip"
 scale = 1.0
 
 # `models` holds the editor models of the platforms and the player start.
